@@ -544,7 +544,7 @@
     }
 }
  .arrow::before{
-     font-family: 'FontAwesome';
+     font-family: 'Font Awesome\ 5 Free';
      content: "\f0d7";
      margin-left: 5px;
      margin-top: 2px;
@@ -1244,7 +1244,7 @@
      display: block;
      line-height: 32px;
      position: relative;
-     padding-left: 15px;
+     padding-left: 20px;
      transition: all .3s ease-in-out;
      -webkit-transition: all .3s ease-in-out;
      -moz-transition: all .3s ease-in-out;
@@ -1252,10 +1252,10 @@
      -ms-transition: all .3s ease-in-out;
 }
  .footer-link ul li a::before {
-     font-family: FontAwesome;
-     content: "\f105";
+     font-family: 'Font Awesome\ 5 Free';
+     content: "\f007";
      position: absolute;
-     left: 5px;
+     left: 2px;
      line-height: 30px;
      font-size: 16px;
      transition: all .3s ease-in-out;
