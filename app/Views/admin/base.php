@@ -43,37 +43,36 @@
   <script src="<?= base_url() ?>assets/js/morris/raphael-2.1.0.min.js"></script>
   <script src="<?= base_url() ?>assets/js/morris/morris.js"></script>
   <!-- CUSTOM SCRIPTS -->
-  <script src="<?= base_url() ?>assets/js/custom.js"></script>
 
   <script src="<?= base_url() ?>assets/js/dataTables/jquery.dataTables.js"></script>
   <script src="<?= base_url() ?>assets/js/dataTables/dataTables.bootstrap.js"></script>
   <script>
-    $(document).ready(function () {
-      $('#dataTables-example').dataTable();
-    });
+  $(document).ready(function() {
+    $('#datatable').dataTable();
+  });
   </script>
 
   <script src="<?= base_url(); ?>/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="<?= base_url() ?>/node_modules/toastr/build/toastr.min.js"></script>
 
   <script>
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": true,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
   </script>
 
   <?= $this->renderSection('script'); ?>
@@ -90,6 +89,8 @@
       session()->getFlashdata('type-status') . '"]("' . session()->getFlashdata('message') . '")</script>';
   }
   ?>
+
+  <!-- <script src="<?= base_url() ?>assets/js/custom.js"></script> -->
 
 </body>
 
