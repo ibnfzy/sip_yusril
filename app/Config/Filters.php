@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\OwnAuth;
+use App\Filters\PelangganAuth;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -19,11 +21,13 @@ class Filters extends BaseConfig
      * @phpstan-var array<string, class-string>
      */
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
+        'csrf' => CSRF::class,
+        'toolbar' => DebugToolbar::class,
+        'honeypot' => Honeypot::class,
+        'invalidchars' => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'own' => OwnAuth::class,
+        'cust' => PelangganAuth::class
     ];
 
     /**
@@ -66,5 +70,18 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'own' => [
+            'before' => [
+                'OwnPanel',
+                'OwnPanel/*'
+            ]
+        ],
+        'cust' => [
+            'before' => [
+                'Panel',
+                'Panel/*'
+            ]
+        ]
+    ];
 }
