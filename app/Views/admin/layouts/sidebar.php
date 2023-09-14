@@ -10,6 +10,10 @@
       </li>
 
       <li>
+        <a href="<?= base_url('OwnPanel/Corousel') ?>"><i class="fa fa-picture-o fa-2x"></i>Corousel</a>
+      </li>
+
+      <li>
         <a href="<?= base_url('OwnPanel/Kategori') ?>"><i class="fa fa-archive fa-2x"></i>Kategori Barang</a>
       </li>
 

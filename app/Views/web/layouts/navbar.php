@@ -1,3 +1,7 @@
+<?php
+$db = \Config\Database::connect();
+$get = $db->table('kategori_barang')->get()->getResultArray();
+?>
 <header class="main-header">
   <!-- Start Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
@@ -20,12 +24,14 @@
 
           <li class="nav-item active"><a class="nav-link" href="<?= base_url(''); ?>">Home</a></li>
 
-          <li class="nav-item"><a class="nav-link" href="<?= base_url(''); ?>">Katalog Barang</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= base_url('Katalog'); ?>">Katalog Barang</a></li>
 
           <li class="dropdown">
             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Kategori Barang</a>
             <ul class="dropdown-menu">
-              <li><a href="<?= base_url(''); ?>">Cart</a></li>
+              <?php foreach ($get as $item): ?>
+                <li><a href="<?= base_url('Katalog/' . $item['id_kategori']); ?>"><?= $item['nama_kategori']; ?></a></li>
+              <?php endforeach ?>
             </ul>
           </li>
 

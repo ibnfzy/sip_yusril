@@ -11,5 +11,6 @@ class SeederMyDB extends Seeder
         $this->call('Admin');
         $this->call('KategoriBarang');
         $this->call('Barang');
+        $this->call('Corousel');
     }
 }
