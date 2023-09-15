@@ -37,18 +37,22 @@
                         <div class="type-lb">
                           <!-- <p class="sale">Sale</p> -->
                         </div>
-                        <img src="<?= base_url('uploads/'.$item['gambar']) ;?>" class="img-fluid" alt="Image">
+                        <img src="<?= base_url('uploads/' . $item['gambar']); ?>" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                           <ul>
                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
                                   class="fas fa-eye"></i></a></li>
                           </ul>
-                          <a class="cart" href="#">Add to Cart</a>
+                          <a class="cart" href="<?= base_url('add_barang/' . $item['id_barang']); ?>">Add to Cart</a>
                         </div>
                       </div>
                       <div class="why-text">
-                        <h4><?= $item['nama_barang'] ;?></h4>
-                        <h5> Rp. <?= number_format($item['harga'], 0, ',', '.') ;?></h5>
+                        <h4>
+                          <?= $item['nama_barang']; ?>
+                        </h4>
+                        <h5> Rp.
+                          <?= number_format($item['harga'], 0, ',', '.'); ?>
+                        </h5>
                       </div>
                     </div>
                   </div>

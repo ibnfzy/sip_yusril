@@ -11,8 +11,8 @@ $routes->get('Katalog/(:num)', 'Home::katalog_kategori/$1');
 $routes->get('Detail/(:num)', 'Home::detail/$1');
 
 $routes->get('Cart', 'Home::cart');
-$routes->post('add_item', 'Home::add_item');
-$routes->get('remove_item/(:any)', 'Home::remove_item/$1');
+$routes->get('add_barang/(:num)', 'Home::add_barang/$1');
+$routes->get('remove_barang/(:any)', 'Home::remove_barang/$1');
 $routes->get('clear_cart', 'Home::clear_cart');
 $routes->post('update_cart', 'Home::update_cart');
 

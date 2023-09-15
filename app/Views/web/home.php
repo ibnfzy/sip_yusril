@@ -79,11 +79,11 @@
             <img src="<?= base_url('uploads/' . $r['gambar']); ?>" class="img-fluid" alt="Image">
             <div class="mask-icon">
               <ul>
-                <li><a href="<?= base_url('Detail/'.$r['id_barang']) ;?>" data-toggle="tooltip" data-placement="right"
+                <li><a href="<?= base_url('Detail/' . $r['id_barang']); ?>" data-toggle="tooltip" data-placement="right"
                     title="View"><i class="fas fa-eye"></i></a>
                 </li>
               </ul>
-              <a class="cart" href="#">Add to Cart</a>
+              <a class="cart" href="<?= base_url('add_barang/' . $r['id_barang']); ?>">Add to Cart</a>
             </div>
           </div>
           <div class="why-text">

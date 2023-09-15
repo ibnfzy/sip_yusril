@@ -104,12 +104,9 @@ class Home extends BaseController
         return view('web/cart');
     }
 
-    public function add_barang()
+    public function add_barang($id)
     {
-        // $get = $this->barangModel->find($this->request->getPost('id'));
-        $get = $this->db->table('barang')->where('id_barang', $this->request->getPost('id'))->get()->getRowArray();
-
-        // dd($this->request->getPost('id'));
+        $get = $this->db->table('barang')->where('id_barang', $id)->get()->getRowArray();
 
         $this->cart->insert([
             'id' => $get['id_barang'],
@@ -120,7 +117,7 @@ class Home extends BaseController
             'stok' => $get['stok_barang']
         ]);
 
-        return $this->response->setJSON(['msg' => 'barang berhasil masuk ke keranjang']);
+        return redirect()->to(base_url('Cart'));
     }
 
     public function remove_barang($rowId)

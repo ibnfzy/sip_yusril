@@ -59,7 +59,8 @@ $get = $home->review($data['id_barang']);
 
           <div class="price-box-bar">
             <div class="cart-and-bay-btn">
-              <a class="btn hvr-hover" data-fancybox-close="" href="#">Masukkan Ke Keranjang</a>
+              <a class="btn hvr-hover" data-fancybox-close=""
+                href="<?= base_url('add_barang/' . $data['id_barang']); ?>">Masukkan Ke Keranjang</a>
             </div>
           </div>
 
@@ -87,27 +88,27 @@ $get = $home->review($data['id_barang']);
       </div>
       <div class="modal-body">
         <?php foreach ($get as $item): ?>
-          <?php $getcustomer = $db->table('customer')->where('id_customer', $item['id_customer'])->get()->getRowArray(); ?>
-          <div class="row">
-            <div class="col-sm-4">
-              <?= $getcustomer['fullname']; ?>
-            </div>
-            <div class="col-sm-8">
-              <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
-                ⭐
-              <?php endfor ?>
-              <span>(
-                <?= $item['bintang']; ?>)
-                <?= $item['insert_datetime']; ?>
-              </span>
-            </div>
-            <div class="col-sm-12">
-              <p>
-                <?= $item['deskripsi']; ?>
-              </p>
-            </div>
+        <?php $getcustomer = $db->table('customer')->where('id_customer', $item['id_customer'])->get()->getRowArray(); ?>
+        <div class="row">
+          <div class="col-sm-4">
+            <?= $getcustomer['fullname']; ?>
           </div>
-          <?php
+          <div class="col-sm-8">
+            <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
+            ⭐
+            <?php endfor ?>
+            <span>(
+              <?= $item['bintang']; ?>)
+              <?= $item['insert_datetime']; ?>
+            </span>
+          </div>
+          <div class="col-sm-12">
+            <p>
+              <?= $item['deskripsi']; ?>
+            </p>
+          </div>
+        </div>
+        <?php
           $i++;
           if ($i != $pbagi) {
             echo '<hr>';
