@@ -22,7 +22,17 @@ class Customer extends Migration
                 'constraint' => 120
             ],
             'password' => [
+                'type' => 'TEXT',
+            ],
+            'kota' => [
                 'type' => 'TEXT'
+            ],
+            'alamat' => [
+                'type' => 'TEXT'
+            ],
+            'nomor_hp' => [
+                'type' => 'VARCHAR',
+                'constraint' => 13
             ]
         ]);
 

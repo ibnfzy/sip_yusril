@@ -33,6 +33,9 @@ class Transaksi extends Migration
             'batas_pembayaran' => [
                 'type' => 'DATE'
             ],
+            'status_transaksi' => [
+                'type' => 'TEXT'
+            ]
         ]);
 
         $this->forge->addKey('id_transaksi', true);

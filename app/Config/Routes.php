@@ -45,3 +45,8 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
   $routes->get('Corousel/add', 'Corousel::new');
   $routes->get('Corousel/(:num)', 'Corousel::delete/$1');
 });
+
+$routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) {
+
+  $routes->get('/', 'UserController::index');
+});
