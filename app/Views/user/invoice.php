@@ -134,7 +134,6 @@
 
 <body>
   <?php $db = \Config\Database::connect(); ?>
-  <?php $get = $db->table('biaya_ongkir')->where('nama_kota', $datapembeli['kota'])->get()->getRowArray(); ?>
   <div class="invoice-box">
     <table>
       <tr class="top">
@@ -149,11 +148,11 @@
 
               <td>
                 Invoice #:
-                <?= $cart_item['id_transaksi']; ?><br />
+                <?= $dataTransaksi['id_transaksi']; ?><br />
                 Created:
-                <?= $cart_item['tgl_checkout']; ?><br />
+                <?= $dataTransaksi['tgl_checkout']; ?><br />
                 Batas Pembayaran:
-                <?= ($cart_item['batas_pembayaran'] != null) ? $cart_item['batas_pembayaran'] : 'Sudah Mengupload Bukti Bayar' ?>
+                <?= ($dataTransaksi['batas_pembayaran'] != null) ? $dataTransaksi['batas_pembayaran'] : 'Sudah Mengupload Bukti Bayar' ?>
               </td>
             </tr>
           </table>
@@ -165,7 +164,7 @@
           <table>
             <tr>
               <td colspan="3">
-                🏘 Fauzan Meubel.<br />
+                BASSEANG ELEKTRONIK.<br />
                 <?= $dataToko['alamat']; ?> <br>
                 <?= $dataToko['kontak']; ?>
               </td>
@@ -173,10 +172,10 @@
               <td></td>
 
               <td>
-                <?= $_SESSION['fullname']; ?>.<br />
-                <?= $get['kota']; ?>,
-                <?= $datapembeli['alamat']; ?><br />
-                <?= $datapembeli['nomor_hp']; ?>
+                <?= $_SESSION['fullname'] ?? 'Admin'; ?>.<br />
+                <?= $dataUser['kota']; ?>,
+                <?= $dataUser['alamat']; ?><br />
+                <?= $dataUser['nomor_hp']; ?>
               </td>
             </tr>
           </table>
@@ -193,8 +192,8 @@
 
       <?php $i = 1;
       $total = [];
-      foreach ($data as $item): ?>
-      <?php $total[] = $item['total_harga']; ?>
+      foreach ($dataDetail as $item): ?>
+      <?php $total[] = $item['harga_barang']; ?>
       <tr class="item">
         <td>
           <?= $i++; ?>
@@ -217,38 +216,35 @@
 
       <tr class="total">
         <td colspan="3">Subtotal: Rp.
+          <?= $subtotal = number_format(array_sum($total), 0, ',', '.'); ?>
 
         </td>
-        <!-- <td colspan="3">Diskon (%):
-          <?= $cart_item['potongan']; ?>%
-        </td> -->
 
       </tr>
 
       <tr class="total">
-        <td colspan="3">Biaya Ongkir: Rp.
+        <td colspan="3">Biaya Ongkir: Rp. 10.000
 
         </td>
         <td colspan="3">Total Bayar: Rp.
-
+          <?= $total_bayar = number_format(($subtotal + 10000), 0, ',', '.'); ?>
         </td>
       </tr>
 
       <tr class="total">
         <td colspan="3">Status Transaksi :
-          <?= $cart_item['status_transaksi']; ?>
+          <?= $dataTransaksi['status_transaksi']; ?>
         </td>
 
       </tr>
       <tr>
-        <!-- <td>Jenis Reward :
-          <?= ($cart_item['type_reward'] == 'free') ? 'Free 1 Meja' : 'Diskon'; ?>
-        </td> -->
+
       </tr>
     </table>
     <table>
       <tr>
-        <td>Silahkan menyelesaikan transaksi dengan mengirim pembayaran dengan nominal Rp. ke BANK XYZ 123456789 A/N
+        <td>Silahkan menyelesaikan transaksi dengan mengirim pembayaran dengan nominal Rp.
+          <?= $total_bayar; ?> ke BANK XYZ 123456789 A/N
           Yusril
         </td>
       </tr>
@@ -256,8 +252,8 @@
     <hr>
     <div class="row">
       <div class="col-4">
-        <!-- ($cart_item['metode_pembayaran'] == 'Transfer') ? '' : 'disabled' -->
-        <button <?= ($cart_item['status_transaksi'] == 'GAGAL') ? 'disabled' : '' ?> class="btn btn-primary"
+        <!-- ($dataTransaksi['metode_pembayaran'] == 'Transfer') ? '' : 'disabled' -->
+        <button <?= ($dataTransaksi['status_transaksi'] == 'GAGAL') ? 'disabled' : '' ?> class="btn btn-primary"
           data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-upload"></i> Upload Bukti
           Bayar</button>
       </div>
@@ -280,8 +276,8 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bukti Bayar *Max <= 2Mb</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="<?= base_url('PembeliPanel/Upload_bukti_bayar/' . $cart_item['id_transaksi']); ?>" method="post"
-          enctype="multipart/form-data">
+        <form action="<?= base_url('PembeliPanel/Upload_bukti_bayar/' . $dataTransaksi['id_transaksi']); ?>"
+          method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="mb-3">
               <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->

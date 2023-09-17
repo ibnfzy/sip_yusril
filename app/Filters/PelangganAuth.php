@@ -26,7 +26,7 @@ class PelangganAuth implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('logged_in_cust')) {
-            return redirect()->to(base_url('Login/cust'));
+            // return redirect()->to(base_url('Login/cust'));
         }
     }
 

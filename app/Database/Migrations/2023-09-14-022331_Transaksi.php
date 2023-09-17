@@ -24,7 +24,8 @@ class Transaksi extends Migration
                 'type' => 'INT'
             ],
             'bukti_bayar' => [
-                'type' => 'TEXT'
+                'type' => 'TEXT',
+                'null' => true
             ],
             'tgl_checkout' => [
                 'type' => 'DATE',
@@ -34,7 +35,8 @@ class Transaksi extends Migration
                 'type' => 'DATE'
             ],
             'status_transaksi' => [
-                'type' => 'TEXT'
+                'type' => 'TEXT',
+                'null' => true
             ]
         ]);
 

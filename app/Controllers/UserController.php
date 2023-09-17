@@ -34,7 +34,7 @@ class UserController extends BaseController
             'dataTransaksi' => $this->db->table('transaksi')->where('id_transaksi', $id)->get()->getRowArray(),
             'dataDetail' => $this->db->table('transaksi_detail')->where('id_transaksi', $id)->get()->getResultArray(),
             'dataToko' => $this->db->table('toko_informasi')->where('id_toko', '1')->get()->getRowArray(),
-            'dataUser' => $this->db->table('customer')->where('id_customer', session()->get('id_customer'))->get()->getRowArray()
+            'dataUser' => $this->db->table('customer')->where('id_customer', '1')->get()->getRowArray()
         ]);
     }
 
@@ -70,7 +70,7 @@ class UserController extends BaseController
                 'id_customer' => session()->get('id_customer'),
                 'total_items' => count($get),
                 'total_bayar' => array_sum($hargaarr),
-                'batas_pembayaran' => date('m/d/Y', strtotime(date('m/d/Y' . ' + 1 Days')))
+                'batas_pembayaran' => date('Y-m-d', strtotime(date('Y-m-d') . ' + 1 Days'))
             ];
 
             $this->db->table('transaksi')->insert($dataTransaksi);
