@@ -20,6 +20,11 @@ $routes->get('Login', 'AdminLogin::index');
 $routes->post('Login', 'AdminLogin::auth');
 $routes->get('Logoff', 'AdminLogin::logoff');
 
+$routes->get('User/Login', 'CustLogin::index');
+$routes->get('User/Daftar', 'CustLogin::daftar');
+$routes->post('User/Daftar', 'CustLogin::signup');
+$routes->post('User/Login', 'CustLogin::auth');
+
 $routes->get('test', function () {
   date_default_timezone_set('Singapore');
   echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 1 Days'));
@@ -56,4 +61,6 @@ $routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) 
   $routes->get('/', 'UserController::index');
 
   $routes->get('Transaksi/(:num)', 'UserController::invoice/$1');
+  $routes->post('Transaksi/(:num)', 'UserController::upload/$1');
+  $routes->get('Transaksi', 'UserController::transaksi');
 });

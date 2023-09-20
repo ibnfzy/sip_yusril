@@ -30,12 +30,12 @@ $get = $db->table('kategori_barang')->get()->getResultArray();
             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Kategori Barang</a>
             <ul class="dropdown-menu">
               <?php foreach ($get as $item): ?>
-                <li><a href="<?= base_url('Katalog/' . $item['id_kategori']); ?>"><?= $item['nama_kategori']; ?></a></li>
+              <li><a href="<?= base_url('Katalog/' . $item['id_kategori']); ?>"><?= $item['nama_kategori']; ?></a></li>
               <?php endforeach ?>
             </ul>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="<?= base_url(''); ?>">Pelanggan Panel</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= base_url('Panel'); ?>">Pelanggan Panel</a></li>
 
         </ul>
       </div>

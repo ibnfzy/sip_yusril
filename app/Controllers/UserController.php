@@ -38,13 +38,40 @@ class UserController extends BaseController
         ]);
     }
 
+    public function upload($id)
+    {
+        helper('form');
+        $rules = [
+            'gambar' => 'is_image[gambar]|max_size[gambar,2048]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(base_url('Panel/Transaksi/' . $id))->with('type-status', 'error')
+                ->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $data = [
+            'bukti_bayar' => $this->request->getFile('gambar')->getName(),
+            'status_bayar' => 'Menunggu Validasi Bukti Bayar',
+        ];
+
+        if (!$this->request->getFile('gambar')->hasMoved()) {
+            $this->request->getFile('gambar')->move('uploads');
+        }
+
+        $this->db->table('transaksi')->where('id_transaksi', $id)->update($data);
+
+        return redirect()->to(base_url('Panel/Transaksi/' . $id))->with('type-status', 'info')
+            ->with('message', 'Bukti Bayar berhasil diupload');
+    }
+
     public function checkout()
     {
         helper('text');
 
         $home = new Home;
 
-        if (isset($_SESSION['logged_in_pelanggan']) and $_SESSION['logged_in_pelanggan'] == TRUE) {
+        if (isset($_SESSION['logged_in_cust']) and $_SESSION['logged_in_cust'] == TRUE) {
             $q = 0;
             $get = [];
             $data = [];

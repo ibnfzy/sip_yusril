@@ -17,118 +17,118 @@
   <link rel="stylesheet" href="<?= base_url(''); ?>/swal/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="<?= base_url('/'); ?>/toastr/build/toastr.min.css">
   <style>
-  body {
-    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    text-align: center;
-    color: #777;
-
-    background: #B24592;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F15F79, #B24592);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F15F79, #B24592);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  }
-
-  body h1 {
-    font-weight: 300;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    color: #000;
-  }
-
-  body h3 {
-    font-weight: 300;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-style: italic;
-    color: #555;
-  }
-
-  body a {
-    color: #06f;
-  }
-
-  .invoice-box {
-    max-width: 800px;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    font-size: 16px;
-    line-height: 24px;
-    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    color: #555;
-    background-color: white;
-  }
-
-  .invoice-box table {
-    width: 100%;
-    line-height: inherit;
-    text-align: left;
-    border-collapse: collapse;
-  }
-
-  .invoice-box table td {
-    padding: 5px;
-    vertical-align: top;
-  }
-
-  .invoice-box table tr td:nth-child(2) {
-    text-align: right;
-  }
-
-  .invoice-box table tr.top table td {
-    padding-bottom: 20px;
-  }
-
-  .invoice-box table tr.top table td.title {
-    font-size: 45px;
-    line-height: 45px;
-    color: #333;
-  }
-
-  .invoice-box table tr.information table td {
-    padding-bottom: 40px;
-  }
-
-  .invoice-box table tr.heading td {
-    background: #eee;
-    border-bottom: 1px solid #ddd;
-    font-weight: bold;
-  }
-
-  .invoice-box table tr.details td {
-    padding-bottom: 20px;
-  }
-
-  .invoice-box table tr.item td {
-    border-bottom: 1px solid #eee;
-  }
-
-  .invoice-box table tr.item.last td {
-    border-bottom: none;
-  }
-
-  .invoice-box table tr.total td:nth-child(2) {
-    border-top: 2px solid #eee;
-    font-weight: bold;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .invoice-box table tr.top table td {
-      width: 100%;
-      display: block;
+    body {
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
       text-align: center;
+      color: #777;
+
+      background: #B24592;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #F15F79, #B24592);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #F15F79, #B24592);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    body h1 {
+      font-weight: 300;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      color: #000;
+    }
+
+    body h3 {
+      font-weight: 300;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #555;
+    }
+
+    body a {
+      color: #06f;
+    }
+
+    .invoice-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+      color: #555;
+      background-color: white;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+      border-collapse: collapse;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 45px;
+      line-height: 45px;
+      color: #333;
     }
 
     .invoice-box table tr.information table td {
-      width: 100%;
-      display: block;
-      text-align: center;
+      padding-bottom: 40px;
     }
-  }
+
+    .invoice-box table tr.heading td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 
@@ -147,7 +147,7 @@
               </td>
 
               <td>
-                Invoice #:
+                Invoice ID #:
                 <?= $dataTransaksi['id_transaksi']; ?><br />
                 Created:
                 <?= $dataTransaksi['tgl_checkout']; ?><br />
@@ -193,24 +193,24 @@
       <?php $i = 1;
       $total = [];
       foreach ($dataDetail as $item): ?>
-      <?php $total[] = $item['harga_barang']; ?>
-      <tr class="item">
-        <td>
-          <?= $i++; ?>
-        </td>
-        <td>
-          <?= $item['id_barang']; ?>
-        </td>
-        <td>
-          <?= $item['nama_barang']; ?>
-        </td>
-        <td>
-          <?= $item['kuantitas_barang']; ?>
-        </td>
-        <td>Rp.
-          <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
-        </td>
-      </tr>
+        <?php $total[] = $item['harga_barang']; ?>
+        <tr class="item">
+          <td>
+            <?= $i++; ?>
+          </td>
+          <td>
+            <?= $item['id_barang']; ?>
+          </td>
+          <td>
+            <?= $item['nama_barang']; ?>
+          </td>
+          <td>
+            <?= $item['kuantitas_barang']; ?>
+          </td>
+          <td>Rp.
+            <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
+          </td>
+        </tr>
       <?php endforeach ?>
 
 
@@ -257,8 +257,7 @@
           data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-upload"></i> Upload Bukti
           Bayar</button>
       </div>
-      <div class="col-4"> <a type="button" target="_blank"
-          href="https://wa.me/<?= str_replace('08', '628', $dataToko['kontak']); ?>" class="btn btn-success"><i
+      <div class="col-4"> <a type="button" target="_blank" href="#" class="btn btn-success"><i
             class="fa-brands fa-whatsapp"></i> Hubungi
           Toko</a></div>
       <div class="col-4"><a type="button" href="javascript::void" onclick="window.print()" class="btn btn-secondary"><i
@@ -276,8 +275,8 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bukti Bayar *Max <= 2Mb</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="<?= base_url('PembeliPanel/Upload_bukti_bayar/' . $dataTransaksi['id_transaksi']); ?>"
-          method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('Panel/Transaksi/' . $dataTransaksi['id_transaksi']); ?>" method="post"
+          enctype="multipart/form-data">
           <div class="modal-body">
             <div class="mb-3">
               <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
@@ -298,7 +297,7 @@
   <script src="<?= base_url(''); ?>/js/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
   <script src="<?= base_url('/'); ?>/fontawesome-free-6.4.0-web/js/all.min.js"></script>
 </body>
