@@ -24,6 +24,7 @@ $routes->get('User/Login', 'CustLogin::index');
 $routes->get('User/Daftar', 'CustLogin::daftar');
 $routes->post('User/Daftar', 'CustLogin::signup');
 $routes->post('User/Login', 'CustLogin::auth');
+$routes->get('User/Logoff', 'CustLogin::logout');
 
 $routes->get('test', function () {
   date_default_timezone_set('Singapore');
@@ -63,4 +64,8 @@ $routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) 
   $routes->get('Transaksi/(:num)', 'UserController::invoice/$1');
   $routes->post('Transaksi/(:num)', 'UserController::upload/$1');
   $routes->get('Transaksi', 'UserController::transaksi');
+
+  $routes->get('Review', 'UserController::review');
+  $routes->post('Review/(:num)', 'UserController::review_add/$1');
+  $routes->get('Review/(:num)', 'UserController::review_delete/$1');
 });

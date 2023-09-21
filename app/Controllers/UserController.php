@@ -34,7 +34,7 @@ class UserController extends BaseController
             'dataTransaksi' => $this->db->table('transaksi')->where('id_transaksi', $id)->get()->getRowArray(),
             'dataDetail' => $this->db->table('transaksi_detail')->where('id_transaksi', $id)->get()->getResultArray(),
             'dataToko' => $this->db->table('toko_informasi')->where('id_toko', '1')->get()->getRowArray(),
-            'dataUser' => $this->db->table('customer')->where('id_customer', '1')->get()->getRowArray()
+            'dataUser' => $this->db->table('customer')->where('id_customer', session()->get('id_customer'))->get()->getRowArray()
         ]);
     }
 
@@ -123,5 +123,56 @@ class UserController extends BaseController
             return redirect()->to(base_url('Login/User'))->with('type-status', 'error')
                 ->with('message', 'Silahkan Login Terlebih Dahulu');
         }
+    }
+
+    public function selesai($id)
+    {
+        $this->db->table('transaksi')->where('id_transaksi', $id)->update([
+            'status_transaksi' => 'Selesai'
+        ]);
+
+        return redirect()->to(base_url('Panel/Transaksi/' . $id))->with('type-status', 'success')
+            ->with('message', 'Transaksi Selesai');
+    }
+
+    public function review_add($id)
+    {
+        $rules = [
+            'bintang' => 'required',
+            'deskripsi' => 'required',
+            'id_barang' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(base_url('Panel/Transaksi/' . $id))->with('type-status', 'error')->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $get = $this->db->table('transaksi')->where('id_transaksi', $id)->get()->getRowArray();
+
+        $data = [
+            'id_barang' => $this->request->getPost('id_barang'),
+            'id_customer' => $get['id_customer'],
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'bintang' => $this->request->getPost('bintang'),
+            'insert_datetime' => date('d/m/Y - H:i')
+        ];
+
+        $this->db->table('review')->insert($data);
+
+        return redirect()->to(base_url('Panel/Transaksi/' . $id))->with('type-status', 'success')->with('message', 'Review berhasil ditambahkan');
+    }
+
+    public function review()
+    {
+        return view('user/review', [
+            'data' => $this->db->table('review')->where('id_customer', session()->get('id_customer'))->orderBy('id_review', 'DESC')->get()->getResultArray()
+        ]);
+    }
+
+    public function review_delete($id)
+    {
+        $this->db->table('review')->where('id_review', $id)->delete();
+
+        return redirect()->to(base_url('Panel/Review'))->with('type-status', 'success')->with('message', 'Review berhasil dihapus');
     }
 }

@@ -40,6 +40,9 @@ class CustLogin extends BaseController
                     'id_customer' => $data['id_customer'],
                     'fullname' => $data['fullname'],
                     'username' => $data['username'],
+                    'kota' => $data['kota'],
+                    'nomor_hp' => $data['nomor_hp'],
+                    'alamat' => $data['alamat'],
                     'logged_in_cust' => TRUE
                 ];
 

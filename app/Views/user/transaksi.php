@@ -25,7 +25,7 @@
                   <th>Tanggal Checkout</th>
                   <th>Tanggal Batas Bayar</th>
                   <th>Status Transaksi</th>
-                  <th>Hapus</th>
+                  <th>Invoice</th>
                 </tr>
               </thead>
               <tbody>

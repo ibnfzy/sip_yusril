@@ -11,124 +11,122 @@
   <!-- <link rel="icon" href="./images/favicon.png" type="image/x-icon" /> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?= base_url(''); ?>/fontawesome-free-6.4.0-web/css/all.min.css" />
+  <link rel="stylesheet" href="<?= base_url(''); ?>/node_modules/fontawesome-free/css/all.min.css" />
   <!-- Invoice styling -->
-  <script src="<?= base_url(''); ?>/swal/dist/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="<?= base_url(''); ?>/swal/dist/sweetalert2.min.css">
-  <link rel="stylesheet" href="<?= base_url('/'); ?>/toastr/build/toastr.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>/node_modules/toastr/build/toastr.min.css">
   <style>
-    body {
-      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-      text-align: center;
-      color: #777;
+  body {
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #777;
 
-      background: #B24592;
-      /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #F15F79, #B24592);
-      /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #F15F79, #B24592);
-      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #B24592;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F15F79, #B24592);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F15F79, #B24592);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    }
+  }
 
-    body h1 {
-      font-weight: 300;
-      margin-bottom: 0px;
-      padding-bottom: 0px;
-      color: #000;
-    }
+  body h1 {
+    font-weight: 300;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: #000;
+  }
 
-    body h3 {
-      font-weight: 300;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      font-style: italic;
-      color: #555;
-    }
+  body h3 {
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #555;
+  }
 
-    body a {
-      color: #06f;
-    }
+  body a {
+    color: #06f;
+  }
 
-    .invoice-box {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
-      border: 1px solid #eee;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      font-size: 16px;
-      line-height: 24px;
-      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-      color: #555;
-      background-color: white;
-    }
+  .invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+    background-color: white;
+  }
 
-    .invoice-box table {
-      width: 100%;
-      line-height: inherit;
-      text-align: left;
-      border-collapse: collapse;
-    }
+  .invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    border-collapse: collapse;
+  }
 
-    .invoice-box table td {
-      padding: 5px;
-      vertical-align: top;
-    }
+  .invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+  }
 
-    .invoice-box table tr td:nth-child(2) {
-      text-align: right;
-    }
+  .invoice-box table tr td:nth-child(2) {
+    text-align: right;
+  }
 
+  .invoice-box table tr.top table td {
+    padding-bottom: 20px;
+  }
+
+  .invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+  }
+
+  .invoice-box table tr.information table td {
+    padding-bottom: 40px;
+  }
+
+  .invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+
+  .invoice-box table tr.details td {
+    padding-bottom: 20px;
+  }
+
+  .invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+  }
+
+  .invoice-box table tr.item.last td {
+    border-bottom: none;
+  }
+
+  .invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+  }
+
+  @media only screen and (max-width: 600px) {
     .invoice-box table tr.top table td {
-      padding-bottom: 20px;
-    }
-
-    .invoice-box table tr.top table td.title {
-      font-size: 45px;
-      line-height: 45px;
-      color: #333;
+      width: 100%;
+      display: block;
+      text-align: center;
     }
 
     .invoice-box table tr.information table td {
-      padding-bottom: 40px;
+      width: 100%;
+      display: block;
+      text-align: center;
     }
-
-    .invoice-box table tr.heading td {
-      background: #eee;
-      border-bottom: 1px solid #ddd;
-      font-weight: bold;
-    }
-
-    .invoice-box table tr.details td {
-      padding-bottom: 20px;
-    }
-
-    .invoice-box table tr.item td {
-      border-bottom: 1px solid #eee;
-    }
-
-    .invoice-box table tr.item.last td {
-      border-bottom: none;
-    }
-
-    .invoice-box table tr.total td:nth-child(2) {
-      border-top: 2px solid #eee;
-      font-weight: bold;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .invoice-box table tr.top table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-      }
-
-      .invoice-box table tr.information table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-      }
-    }
+  }
   </style>
 </head>
 
@@ -142,8 +140,9 @@
             <tr>
               <td class="title">
                 <!-- <img src="./images/logo.png" alt="Company logo" style="width: 100%; max-width: 300px" /> -->
-                <button onclick="history.back()" class="btn btn-primary" type="button"><i
-                    class="fa-solid fa-arrow-left"></i> Kembali</button>
+                <button onclick="location.replace('<?= base_url('Panel/Transaksi') ?>')" class="btn btn-primary"
+                  type="button"><i class="fa fa-arrow-left"></i>
+                  Kembali</button>
               </td>
 
               <td>
@@ -193,24 +192,24 @@
       <?php $i = 1;
       $total = [];
       foreach ($dataDetail as $item): ?>
-        <?php $total[] = $item['harga_barang']; ?>
-        <tr class="item">
-          <td>
-            <?= $i++; ?>
-          </td>
-          <td>
-            <?= $item['id_barang']; ?>
-          </td>
-          <td>
-            <?= $item['nama_barang']; ?>
-          </td>
-          <td>
-            <?= $item['kuantitas_barang']; ?>
-          </td>
-          <td>Rp.
-            <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
-          </td>
-        </tr>
+      <?php $total[] = $item['harga_barang']; ?>
+      <tr class="item">
+        <td>
+          <?= $i++; ?>
+        </td>
+        <td>
+          <?= $item['id_barang']; ?>
+        </td>
+        <td>
+          <?= $item['nama_barang']; ?>
+        </td>
+        <td>
+          <?= $item['kuantitas_barang']; ?>
+        </td>
+        <td>Rp.
+          <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
+        </td>
+      </tr>
       <?php endforeach ?>
 
 
@@ -227,7 +226,7 @@
 
         </td>
         <td colspan="3">Total Bayar: Rp.
-          <?= $total_bayar = number_format(($subtotal + 10000), 0, ',', '.'); ?>
+          <?= $total_bayar = number_format((array_sum($total) + 10000), 0, ',', '.'); ?>
         </td>
       </tr>
 
@@ -250,56 +249,140 @@
       </tr>
     </table>
     <hr>
-    <div class="row">
-      <div class="col-4">
-        <!-- ($dataTransaksi['metode_pembayaran'] == 'Transfer') ? '' : 'disabled' -->
-        <button <?= ($dataTransaksi['status_transaksi'] == 'GAGAL') ? 'disabled' : '' ?> class="btn btn-primary"
-          data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-upload"></i> Upload Bukti
+    <div class="d-flex justify-content-around">
+      <div>
+        <button <?= ($dataTransaksi['status_transaksi'] == 'Gagal') ? 'disabled' : '' ?>
+          <?= ($dataTransaksi['status_transaksi'] == 'Selesai') ? 'disabled' : '' ?> class="btn btn-primary"
+          data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-upload"></i> Upload Bukti
           Bayar</button>
       </div>
-      <div class="col-4"> <a type="button" target="_blank" href="#" class="btn btn-success"><i
-            class="fa-brands fa-whatsapp"></i> Hubungi
+      <div><a type="button" target="_blank" href="#" class="btn btn-success"><i class="fab fa-whatsapp"></i>
+          Hubungi
           Toko</a></div>
-      <div class="col-4"><a type="button" href="javascript::void" onclick="window.print()" class="btn btn-secondary"><i
-            class="fa-solid fa-print"></i> Print</a>
+      <div><a type="button" href="javascript::void" onclick="window.print()" class="btn btn-secondary"><i
+            class="fa fa-print"></i> Print</a>
       </div>
+      <?php if ($dataTransaksi['status_transaksi'] == 'Selesai'): ?>
+      <div>
+        <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review"><i
+            class="fa fa-star"></i> Review Barang</a>
+      </div>
+      <?php endif ?>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bukti Bayar *Max <= 2Mb</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="<?= base_url('Panel/Transaksi/' . $dataTransaksi['id_transaksi']); ?>" method="post"
-          enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="mb-3">
-              <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
-              <input type="file" class="form-control" name="gambar" id="exampleFormControlInput1" accept="image/*">
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="review" tabindex="-1" aria-labelledby="reviewLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="reviewLabel">Beri Review</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="<?= base_url('Panel/Review/' . $dataTransaksi['id_transaksi']); ?>" method="post">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Barang</label>
+                <select name="id_barang" id="" class="form-control">
+                  <?php foreach ($dataDetail as $item): ?>
+                  <option value="<?= $item['id_barang']; ?>">
+                    <?= $item['nama_barang']; ?>
+                  </option>
+                  <?php endforeach ?>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Bintang</label>
+                <select name="bintang" id="" class="form-control">
+                  <option value="1">⭐</option>
+                  <option value="2">⭐⭐</option>
+                  <option value="3">⭐⭐⭐</option>
+                  <option value="4">⭐⭐⭐⭐</option>
+                  <option value="5">⭐⭐⭐⭐⭐</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">Deskripsi</label>
+                <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control"></textarea>
+              </div>
+
             </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Upload</button>
-          </div>
-        </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Tambah</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bukti Bayar *Max <= 2Mb</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="<?= base_url('Panel/Transaksi/' . $dataTransaksi['id_transaksi']); ?>" method="post"
+            enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="mb-3">
+                <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+                <input type="file" class="form-control" name="gambar" id="exampleFormControlInput1" accept="image/*">
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
 
-  <script src="<?= base_url(''); ?>/js/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    <script src="<?= base_url(''); ?>/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-  <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
-  <script src="<?= base_url('/'); ?>/fontawesome-free-6.4.0-web/js/all.min.js"></script>
+    <script src="<?= base_url() ?>/node_modules/toastr/build/toastr.min.js"></script>
+    <script src="<?= base_url('/'); ?>/node_modules/fontawesome-free/js/all.min.js"></script>
+
+    <script>
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": true,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": true,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+    </script>
+
+    <?php
+    if (session()->getFlashdata('dataMessage')) {
+      foreach (session()->getFlashdata('dataMessage') as $item) {
+        echo '<script>toastr["' .
+          session()->getFlashdata('type-status') . '"]("' . $item . '")</script>';
+      }
+    }
+    if (session()->getFlashdata('message')) {
+      echo '<script>toastr["' .
+        session()->getFlashdata('type-status') . '"]("' . session()->getFlashdata('message') . '")</script>';
+    }
+    ?>
 </body>
 
 </html>

@@ -11,6 +11,6 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> <a href="<?= base_url('Logoff'); ?>" class="btn btn-danger square-btn-adjust">Logout</a>
+font-size: 16px;"> <a href="<?= base_url('User/Logoff'); ?>" class="btn btn-danger square-btn-adjust">Logout</a>
   </div>
 </nav>

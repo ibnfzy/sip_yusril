@@ -162,7 +162,7 @@
 </head>
 
 <body>
-  <h1 class="title">Customer Form Daftar</h1>
+  <h1 class="title" onclick="location.replace('<?= base_url(); ?>')">Customer Form Daftar</h1>
   <form class="login" action="<?= base_url('User/Daftar'); ?>" method="POST">
     <input type="text" placeholder="Username" name="username">
     <input type="text" placeholder="Fullname" name="fullname">
