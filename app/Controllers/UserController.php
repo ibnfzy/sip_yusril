@@ -78,15 +78,15 @@ class UserController extends BaseController
             $hargaarr = [];
 
             foreach ($this->cart->contents() as $item) {
-                $produk = $this->db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRowArray();
+                $produk = $this->db->table('barang')->where('id_barang', $item['id'])->get()->getRowArray();
 
                 $get[] = $produk;
                 $get[$q]['qty'] = $item['qty'];
                 $get[$q]['total_harga'] = $item['qty'] * $item['price'];
-                $stok = $produk['stok_item'] - $item['qty'];
+                $stok = $produk['stok'] - $item['qty'];
                 $hargaarr[] = $item['qty'] * $item['price'];
 
-                $this->db->table('barang')->where('id_barang', $item['id_barang'])->update([
+                $this->db->table('barang')->where('id_barang', $item['id'])->update([
                     'stok' => $stok
                 ]);
 
@@ -97,7 +97,8 @@ class UserController extends BaseController
                 'id_customer' => session()->get('id_customer'),
                 'total_items' => count($get),
                 'total_bayar' => array_sum($hargaarr),
-                'batas_pembayaran' => date('Y-m-d', strtotime(date('Y-m-d') . ' + 1 Days'))
+                'batas_pembayaran' => date('Y-m-d', strtotime(date('Y-m-d') . ' + 1 Days')),
+                'status_transaksi' => 'Menunggu Bukti Pembayaran'
             ];
 
             $this->db->table('transaksi')->insert($dataTransaksi);

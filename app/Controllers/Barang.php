@@ -61,6 +61,13 @@ class Barang extends BaseController
             'desc' => $this->request->getPost('desc')
         ]);
 
+        $getLastID = $this->db->table('barang')->where('nama_barang', $this->request->getPost('nama_barang'))->get()->getRowArray();
+
+        $this->db->table('stok_barang')->insert([
+            'id_barang' => $getLastID['id_barang'],
+            'stok' => $this->request->getPost('stok')
+        ]);
+
         return redirect()->to(base_url('OwnPanel/Barang'))->with('type-status', 'success')->with('message', 'Data berhasil ditambahkan');
     }
 
@@ -78,7 +85,6 @@ class Barang extends BaseController
             'id_kategori' => 'required',
             'nama_barang' => 'required|max_length[50]',
             'harga' => 'required',
-            'stok' => 'required',
             'desc' => 'required'
         ];
 
@@ -99,7 +105,6 @@ class Barang extends BaseController
             'nama_barang' => $this->request->getPost('nama_barang'),
             'kategori' => $getKategori['nama_kategori'],
             'harga' => $this->request->getPost('harga'),
-            'stok' => $this->request->getPost('stok'),
             'desc' => $this->request->getPost('desc')
         ];
 

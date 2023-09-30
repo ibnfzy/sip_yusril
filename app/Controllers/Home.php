@@ -111,10 +111,10 @@ class Home extends BaseController
         $this->cart->insert([
             'id' => $get['id_barang'],
             'qty' => 1,
-            'price' => $get['harga_barang'],
+            'price' => $get['harga'],
             'name' => $get['nama_barang'],
-            'gambar' => $get['gambar_barang'],
-            'stok' => $get['stok_barang']
+            'gambar' => $get['gambar'],
+            'stok' => $get['stok']
         ]);
 
         return redirect()->to(base_url('Cart'));

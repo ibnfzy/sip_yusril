@@ -28,7 +28,8 @@ class Barang extends Migration
                 'type' => 'INT'
             ],
             'stok' => [
-                'type' => 'INT'
+                'type' => 'INT',
+                'default' => 0
             ],
             'gambar' => [
                 'type' => 'TEXT'

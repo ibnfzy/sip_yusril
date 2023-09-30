@@ -24,7 +24,7 @@
                   <label for="">Kategori Barang</label>
                   <select name="id_kategori" id="">
                     <?php foreach ($kategori as $item): ?>
-                      <option value="<?= $item['id_kategori']; ?>"><?= $item['nama_kategori']; ?></option>
+                    <option value="<?= $item['id_kategori']; ?>"><?= $item['nama_kategori']; ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -41,11 +41,6 @@
                   </span>
 
                   <input type="text" name="harga" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label>Stok Barang</label>
-                  <input type="text" class="form-control" name="stok" />
                 </div>
 
                 <div class="form-group">

@@ -35,7 +35,7 @@ class AdminLogin extends BaseController
             if ($verify) {
                 $sessionData = [
                     'id_admin' => $data['id_admin'],
-                    'fullname' => $data['fullname'],
+                    'fullname_s' => $data['fullname'],
                     'username' => $data['username'],
                     'logged_own' => TRUE
                 ];
@@ -44,7 +44,7 @@ class AdminLogin extends BaseController
                 // $session->markAsTempdata('logged_in_admin', 1800); //timeout 30 menit
 
                 return redirect()->to(base_url('OwnPanel'))->with('type-status', 'info')
-                    ->with('message', 'Selamat Datang Kembali ' . $sessionData['fullname']);
+                    ->with('message', 'Selamat Datang Kembali ' . $sessionData['fullname_s']);
             } else {
                 return redirect()->to(base_url('Login'))->with('type-status', 'error')
                     ->with('message', 'Password tidak benar');

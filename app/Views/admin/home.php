@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <h2>Owner Panel</h2>
       <h5>Welcome
-        <?= session()->get('fullname'); ?> , Love to see you back.
+        <?= session()->get('fullname_s'); ?> , Love to see you back.
       </h5>
     </div>
   </div>
@@ -19,7 +19,9 @@
           <i class="fa fa-dropbox"></i>
         </span>
         <div class="text-box">
-          <p class="main-text">120</p>
+          <p class="main-text">
+            <?= $total_barang; ?>
+          </p>
           <p class="text-muted">Barang</p>
         </div>
       </div>
@@ -30,7 +32,9 @@
           <i class="fa fa-shopping-cart"></i>
         </span>
         <div class="text-box">
-          <p class="main-text">30</p>
+          <p class="main-text">
+            <?= $total_transaksi; ?>
+          </p>
           <p class="text-muted">Transaksi Selesai</p>
         </div>
       </div>
@@ -41,12 +45,14 @@
           <i class="fa fa-user"></i>
         </span>
         <div class="text-box">
-          <p class="main-text">240</p>
+          <p class="main-text">
+            <?= $total_pelanggan; ?>
+          </p>
           <p class="text-muted">Pelanggan</p>
         </div>
       </div>
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-6">
+    <!-- <div class="col-md-3 col-sm-6 col-xs-6">
       <div class="panel panel-back noti-box">
         <span class="icon-box bg-color-brown set-icon">
           <i class="fa fa-money"></i>
@@ -56,7 +62,7 @@
           <p class="text-muted">Keuntungan</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- /. ROW  -->
 </div>

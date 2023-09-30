@@ -35,6 +35,13 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
 
   // Menu Panel
   $routes->get('/', 'AdmController::index');
+  $routes->get('Transaksi', 'AdmController::transaksi');
+  $routes->get('Transaksi/(:num)/(:num)', 'AdmController::invoice/$1/$2');
+  $routes->get('Pelanggan', 'AdmController::pelanggan');
+  $routes->get('LapKeuangan', 'AdmController::laporan_keuangan');
+  $routes->get('AnalisaStok', 'AdmController::analisa_stok');
+
+  $routes->post('TambahStok', 'AdmController::add_stok');
 
   // Kategori Barang
   $routes->get('Kategori', 'KategoriBarang::index');
@@ -60,6 +67,7 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
 $routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) {
 
   $routes->get('/', 'UserController::index');
+  $routes->get('Checkout', 'UserController::checkout');
 
   $routes->get('Transaksi/(:num)', 'UserController::invoice/$1');
   $routes->post('Transaksi/(:num)', 'UserController::upload/$1');

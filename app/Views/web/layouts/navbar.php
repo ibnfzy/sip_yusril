@@ -1,6 +1,7 @@
 <?php
 $db = \Config\Database::connect();
 $get = $db->table('kategori_barang')->get()->getResultArray();
+$cart = \Config\Services::cart();
 ?>
 <header class="main-header">
   <!-- Start Navigation -->
@@ -30,7 +31,9 @@ $get = $db->table('kategori_barang')->get()->getResultArray();
             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Kategori Barang</a>
             <ul class="dropdown-menu">
               <?php foreach ($get as $item): ?>
-              <li><a href="<?= base_url('Katalog/' . $item['id_kategori']); ?>"><?= $item['nama_kategori']; ?></a></li>
+              <li><a href="<?= base_url('Katalog/' . $item['id_kategori']); ?>">
+                  <?= $item['nama_kategori']; ?>
+                </a></li>
               <?php endforeach ?>
             </ul>
           </li>
@@ -42,11 +45,11 @@ $get = $db->table('kategori_barang')->get()->getResultArray();
       <!-- /.navbar-collapse -->
 
       <!-- Start Atribute Navigation -->
-      <div class="attr-nav">
+      <div>
         <ul>
-          <li class="side-menu"><a href="<?= base_url(''); ?>">
+          <li class="side-menu"><a class="nav-link" href="<?= base_url('Cart'); ?>">
               <i class="fa fa-shopping-bag"></i>
-              <span class="badge">3</span>
+              Keranjang (<?= $cart->totalItems() ;?>)
             </a></li>
         </ul>
       </div>

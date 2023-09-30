@@ -30,11 +30,11 @@
       </li>
 
       <li>
-        <a href="<?= base_url('OwnPanel/Keuangan') ?>"><i class="fa fa-file-text fa-2x"></i>Laporan Keuangan</a>
+        <a href="<?= base_url('OwnPanel/LapKeuangan') ?>"><i class="fa fa-file-text fa-2x"></i>Laporan Keuangan</a>
       </li>
 
       <li>
-        <a href="<?= base_url('OwnPanel/Stok') ?>"><i class="fa fa-file-text fa-2x"></i>Analisa Stok</a>
+        <a href="<?= base_url('OwnPanel/AnalisaStok') ?>"><i class="fa fa-file-text fa-2x"></i>Analisa Stok</a>
       </li>
     </ul>
 

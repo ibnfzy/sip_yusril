@@ -30,22 +30,22 @@
                 $db = \Config\Database::connect();
                 ?>
                 <?php foreach ($data as $item): ?>
-                <?php $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRowArray(); ?>
-                <tr>
-                  <td>
-                    <?= $x++; ?>
-                  </td>
-                  <td>
-                    <?= $get['nama_barang']; ?>
-                  </td>
-                  <td>
-                    <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
-                    ⭐
-                    <?php endfor; ?>
-                  </td>
-                  <td><a href="<?= base_url('Panel/Review/' . $item['id_review']); ?>" class="btn btn-danger">Hapus</a>
-                  </td>
-                </tr>
+                  <?php $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRowArray(); ?>
+                  <tr>
+                    <td>
+                      <?= $x++; ?>
+                    </td>
+                    <td>
+                      <?= $get['nama_barang']; ?>
+                    </td>
+                    <td>
+                      <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
+                        ⭐
+                      <?php endfor; ?>
+                    </td>
+                    <td><a href="<?= base_url('Panel/Review/' . $item['id_review']); ?>" class="btn btn-danger">Hapus</a>
+                    </td>
+                  </tr>
                 <?php endforeach ?>
               </tbody>
             </table>

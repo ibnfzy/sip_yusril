@@ -23,10 +23,12 @@
 
                 <div class="form-group">
                   <label for="">Kategori Barang</label>
-                  <select name="id_kategori" id="">
+                  <select class="form-control" name="id_kategori" id="">
                     <?php foreach ($kategori as $item): ?>
                     <option <?= ($item['id_kategori'] == $data['id_kategori']) ? 'selected' : ''; ?>
-                      value="<?= $item['id_kategori']; ?>"><?= $item['nama_kategori']; ?></option>
+                      value="<?= $item['id_kategori']; ?>">
+                      <?= $item['nama_kategori']; ?>
+                    </option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -46,18 +48,13 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Stok Barang</label>
-                  <input value="<?= $data['stok'] ;?>" type="text" class="form-control" name="stok" />
-                </div>
-
-                <div class="form-group">
                   <label>Gambar Barang</label>
                   <input type="file" class="form-control" name="gambar" />
                 </div>
 
                 <div class="form-group">
                   <label for="">Deskripsi Barang</label>
-                  <textarea name="desc" class="form-control" id="" cols="30" rows="10"><?= $data['desc'] ;?></textarea>
+                  <textarea name="desc" class="form-control" id="" cols="30" rows="10"><?= $data['desc']; ?></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save</button>

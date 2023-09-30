@@ -6,6 +6,7 @@ $home = new \App\Controllers\Home;
 $star = $home->review_star($data['id_barang']);
 $total_star = $home->total_review($data['id_barang']);
 $get = $home->review($data['id_barang']);
+$pbagi = count($get);
 ?>
 
 <div class="all-title-box" style="background: black;">
@@ -88,27 +89,27 @@ $get = $home->review($data['id_barang']);
       </div>
       <div class="modal-body">
         <?php foreach ($get as $item): ?>
-        <?php $getcustomer = $db->table('customer')->where('id_customer', $item['id_customer'])->get()->getRowArray(); ?>
-        <div class="row">
-          <div class="col-sm-4">
-            <?= $getcustomer['fullname']; ?>
+          <?php $getcustomer = $db->table('customer')->where('id_customer', $item['id_customer'])->get()->getRowArray(); ?>
+          <div class="row">
+            <div class="col-sm-4">
+              <?= $getcustomer['fullname']; ?>
+            </div>
+            <div class="col-sm-8">
+              <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
+                ⭐
+              <?php endfor ?>
+              <span>(
+                <?= $item['bintang']; ?>)
+                <?= $item['insert_datetime']; ?>
+              </span>
+            </div>
+            <div class="col-sm-12">
+              <p>
+                <?= $item['deskripsi']; ?>
+              </p>
+            </div>
           </div>
-          <div class="col-sm-8">
-            <?php for ($i = 0; $i < $item['bintang']; $i++): ?>
-            ⭐
-            <?php endfor ?>
-            <span>(
-              <?= $item['bintang']; ?>)
-              <?= $item['insert_datetime']; ?>
-            </span>
-          </div>
-          <div class="col-sm-12">
-            <p>
-              <?= $item['deskripsi']; ?>
-            </p>
-          </div>
-        </div>
-        <?php
+          <?php
           $i++;
           if ($i != $pbagi) {
             echo '<hr>';

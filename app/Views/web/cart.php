@@ -23,28 +23,29 @@
 <!-- Start Cart  -->
 <div class="cart-box-main">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="table-main table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Gambar</th>
-                <th>Nama Barang</th>
-                <th>Harga</th>
-                <th>Kuantitas</th>
-                <th>Total</th>
-                <th>Hapus</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php if ($cart->contents() == null): ?>
+    <form action="<?= base_url('update_cart'); ?>" method="post">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-main table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Gambar</th>
+                  <th>Nama Barang</th>
+                  <th>Harga</th>
+                  <th>Kuantitas</th>
+                  <th>Total</th>
+                  <th>Hapus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php if ($cart->contents() == null): ?>
                 <td colspan="6">Keranjang Kosong</td>
-              <?php endif;
-              $total = [];
-              $i = 1; ?>
+                <?php endif;
+                $total = [];
+                $i = 1; ?>
 
-              <?php foreach ($cart->contents() as $item): ?>
+                <?php foreach ($cart->contents() as $data): ?>
                 <tr>
                   <input type="hidden" name="rowid[<?= $i; ?>]" value="<?= $data['rowid']; ?>">
                   <input type="hidden" name="stok[<?= $i; ?>]" value="<?= $data['stok']; ?>">
@@ -61,15 +62,15 @@
                   </td>
                   <td class="price-pr">
                     <p>Rp.
-                      <?= number_format($item['price'], 0, ',', '.'); ?>
+                      <?= number_format($data['price'], 0, ',', '.'); ?>
                     </p>
                   </td>
-                  <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1"
-                      class="c-input-text qty text"></td>
+                  <td class="quantity-box"><input name="qtybutton[<?= $i ?>]" type="number" size="4"
+                      value="<?= $data['qty'] ;?>" min="0" step="1" class="c-input-text qty text"></td>
                   <td class="total-pr">
                     <p>Rp.
                       <?php $subTotal = $data['price'] * $data['qty'];
-                      echo number_format($subTotal, 0, ',', '.') ?>
+                        echo number_format($subTotal, 0, ',', '.') ?>
                     </p>
                   </td>
                   <td class="remove-pr">
@@ -78,24 +79,27 @@
                     </a>
                   </td>
                 </tr>
-              <?php endforeach ?>
+                <?php $total[] = $subTotal; ?>
+                <?php endforeach ?>
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row my-5">
-      <div class="col-lg-6 col-sm-6">
+      <div class="row my-5">
+        <div class="col-lg-6 col-sm-6">
 
-      </div>
-      <div class="col-lg-6 col-sm-6">
-        <div class="update-box">
-          <input value="Update Cart" type="submit">
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="update-box">
+            <input value="Update Cart" type="submit">
+          </div>
         </div>
       </div>
-    </div>
+
+    </form>
 
     <div class="row my-5">
       <div class="col-lg-8 col-sm-12"></div>
@@ -107,7 +111,7 @@
             <div class="ml-auto font-weight-bold"> Rp.
               <?php
               $_SESSION['subtotal'] = array_sum($total);
-              echo number_format($_SESSION['subtotal'], 0, ',', '.') ?>
+              echo number_format(array_sum($total), 0, ',', '.') ?>
             </div>
           </div>
           <!-- <div class="d-flex">
@@ -123,7 +127,8 @@
           <hr>
         </div>
       </div>
-      <div class="col-12 d-flex shopping-box"><a href="#" class="ml-auto btn hvr-hover">Checkout</a> </div>
+      <div class="col-12 d-flex shopping-box"><a href="<?= base_url('Panel/Checkout'); ?>"
+          class="ml-auto btn hvr-hover">Checkout</a> </div>
     </div>
 
   </div>

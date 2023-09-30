@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col-md-12">
       <a href="<?= base_url('OwnPanel/Barang/add'); ?>" class="btn btn-primary">Tambah Data</a>
+      <button class="btn btn-warning" data-toggle="modal" data-target="#stok">Tambah Stok Barang</button>
     </div>
   </div>
   <!-- /. ROW  -->
@@ -63,5 +64,42 @@
     </div>
   </div>
   <!-- /. ROW  -->
+</div>
+
+<div class="modal fade" id="stok" tabindex="-1" aria-labelledby="reviewLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title fs-5" id="reviewLabel">Tambah Stok Barang</h1>
+      </div>
+      <form action="<?= base_url('OwnPanel/TambahStok'); ?>" method="post">
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Pilih Barang</label>
+            <select class="form-control" name="id_barang" id="id_barang">
+              <?php foreach ($data as $item): ?>
+              <option value="<?= $item['id_barang']; ?>">
+                <?= $item['id_barang']; ?>
+              </option>
+              <?php endforeach ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="">Stok</label>
+            <input type="number" class="form-control" name="stok" value="0">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 <?= $this->endSection(); ?>
