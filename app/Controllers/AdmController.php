@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Database\RawSql;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class AdmController extends BaseController
 {
@@ -47,12 +50,44 @@ class AdmController extends BaseController
 
     public function laporan_keuangan()
     {
-        return view('admin/laporan_keuangan');
+        return view('admin/laporan_keuangan', [
+            'data' => $this->db->table('transaksi')->select(new RawSql('DISTINCT YEAR(tgl_checkout) as tahun'))->get()->getResultArray()
+        ]);
+    }
+
+    public function renderLapkeuangan()
+    {
+        $type = $this->request->getPost('views-control');
+
+        switch ($type) {
+            case 'bulan':
+                $where = date('Y-m', strtotime($this->request->getPost('bulan')));
+                $date = date('F Y', strtotime($this->request->getPost('bulan')));
+                break;
+
+            case 'tahun':
+                $where = $this->request->getPost('tahun');
+                $date = $this->request->getPost('tahun');
+                break;
+
+            default:
+                $date = $this->request->getPost('bulan');
+                $date = date('l Y', strtotime($this->request->getPost('bulan')));
+                break;
+        }
+
+        return view('admin/render_laporan_keuangan', [
+            'data' => $this->db->table('transaksi')->like('tgl_checkout', $where, 'right')->get()->getResultArray(),
+            'type' => $type,
+            'date' => $date
+        ]);
     }
 
     public function analisa_stok()
     {
-        return view('admin/analisa_stok');
+        return view('admin/analisa_stok', [
+            'data' => $this->db->table('stok_barang')->select(new RawSql('DISTINCT YEAR(tgl_input) as tahun'))->get()->getResultArray()
+        ]);
     }
 
     public function transaksi()

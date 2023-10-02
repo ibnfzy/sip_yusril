@@ -18,7 +18,7 @@
 
           <div class="row">
             <div class="col-md-6">
-              <form action="#" method="post">
+              <form action="<?= base_url('OwnPanel/LapKeuangan/render'); ?>" method="post">
 
                 <div class="form-group">
                   <label for="">Tampilkan Berdasarkan</label>
@@ -36,7 +36,14 @@
                 <div id="tahun" class="form-group">
                   <label for="">Pilih Tahun</label>
                   <select name="tahun" class="form-control">
-                    <option value="">2023</option>
+                    <?php if ($data == null): ?>
+                    <option value="2023">2023</option>
+                    <?php endif ?>
+                    <?php foreach ($data as $item): ?>
+                    <option value="<?= $item['tahun']; ?>">
+                      <?= $item['tahun']; ?>
+                    </option>
+                    <?php endforeach ?>
                   </select>
                 </div>
 

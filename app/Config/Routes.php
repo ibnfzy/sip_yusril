@@ -26,9 +26,8 @@ $routes->post('User/Daftar', 'CustLogin::signup');
 $routes->post('User/Login', 'CustLogin::auth');
 $routes->get('User/Logoff', 'CustLogin::logout');
 
-$routes->get('test', function () {
-  date_default_timezone_set('Singapore');
-  echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 1 Days'));
+$routes->get('render', function () {
+  return view('admin/render_pdf');
 });
 
 $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($routes) {
@@ -40,6 +39,8 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
   $routes->get('Pelanggan', 'AdmController::pelanggan');
   $routes->get('LapKeuangan', 'AdmController::laporan_keuangan');
   $routes->get('AnalisaStok', 'AdmController::analisa_stok');
+
+  $routes->post('LapKeuangan/render', 'AdmController::renderLapkeuangan');
 
   $routes->post('TambahStok', 'AdmController::add_stok');
 

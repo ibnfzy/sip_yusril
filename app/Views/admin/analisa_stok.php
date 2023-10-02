@@ -36,7 +36,14 @@
                 <div id="tahun" class="form-group">
                   <label for="">Pilih Tahun</label>
                   <select name="tahun" class="form-control">
-                    <option value="">2023</option>
+                    <?php if ($data == null): ?>
+                    <option value="2023">2023</option>
+                    <?php endif ?>
+                    <?php foreach ($data as $item): ?>
+                    <option value="<?= $item['tahun']; ?>">
+                      <?= $item['tahun']; ?>
+                    </option>
+                    <?php endforeach ?>
                   </select>
                 </div>
 
@@ -56,33 +63,33 @@
 
 <?= $this->section('script'); ?>
 <script>
-  $('#tahun').attr('hidden', '')
-  $('#bulan').removeAttr('hidden')
+$('#tahun').attr('hidden', '')
+$('#bulan').removeAttr('hidden')
 
-  $('#views-control').change(function (e) {
-    e.preventDefault();
-    const views_control = $('#views-control').val();
+$('#views-control').change(function(e) {
+  e.preventDefault();
+  const views_control = $('#views-control').val();
 
-    switch (views_control) {
-      case 'bulan':
-        $('#tahun').attr('hidden', '')
-        $('#tahun').val('')
-        $('#bulan').removeAttr('hidden')
-        break;
+  switch (views_control) {
+    case 'bulan':
+      $('#tahun').attr('hidden', '')
+      $('#tahun').val('')
+      $('#bulan').removeAttr('hidden')
+      break;
 
-      case 'tahun':
-        $('#bulan').attr('hidden', '')
-        $('#bulan').val('')
-        $('#tahun').removeAttr('hidden')
-        break;
+    case 'tahun':
+      $('#bulan').attr('hidden', '')
+      $('#bulan').val('')
+      $('#tahun').removeAttr('hidden')
+      break;
 
-      default:
-        $('#tahun').attr('hidden', '')
-        $('#tahun').val('')
-        $('#bulan').removeAttr('hidden')
-        break;
-    }
+    default:
+      $('#tahun').attr('hidden', '')
+      $('#tahun').val('')
+      $('#bulan').removeAttr('hidden')
+      break;
+  }
 
-  });
+});
 </script>
 <?= $this->endSection(); ?>

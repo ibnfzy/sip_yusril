@@ -31,28 +31,28 @@
               <tbody>
                 <?php $x = 1; ?>
                 <?php foreach ($data as $item): ?>
-                <tr>
-                  <td>
-                    <?= $x++; ?>
-                  </td>
-                  <td>
-                    <?= $item['nama_barang']; ?>
-                  </td>
-                  <td>Rp.
-                    <?= number_format($item['harga'], 0, ',', '.'); ?>
-                  </td>
-                  <td>
-                    <?= $item['stok']; ?>
-                  </td>
-                  <td>
-                    <?= $item['kategori']; ?>
-                  </td>
-                  <td>
-                    <a href="<?= base_url('OwnPanel/BarangDelete/' . $item['id_barang']); ?>"
-                      class="btn btn-danger">Hapus</a>
-                    <a href="<?= base_url('OwnPanel/Barang/' . $item['id_barang']); ?>" class="btn btn-primary">Edit</a>
-                  </td>
-                </tr>
+                  <tr>
+                    <td>
+                      <?= $x++; ?>
+                    </td>
+                    <td>
+                      <?= $item['nama_barang']; ?>
+                    </td>
+                    <td>Rp.
+                      <?= number_format($item['harga'], 0, ',', '.'); ?>
+                    </td>
+                    <td>
+                      <?= $item['stok']; ?>
+                    </td>
+                    <td>
+                      <?= $item['kategori']; ?>
+                    </td>
+                    <td>
+                      <a href="<?= base_url('OwnPanel/BarangDelete/' . $item['id_barang']); ?>"
+                        class="btn btn-danger">Hapus</a>
+                      <a href="<?= base_url('OwnPanel/Barang/' . $item['id_barang']); ?>" class="btn btn-primary">Edit</a>
+                    </td>
+                  </tr>
                 <?php endforeach ?>
               </tbody>
             </table>
@@ -81,9 +81,9 @@
             <label for="exampleFormControlInput1" class="form-label">Pilih Barang</label>
             <select class="form-control" name="id_barang" id="id_barang">
               <?php foreach ($data as $item): ?>
-              <option value="<?= $item['id_barang']; ?>">
-                <?= $item['id_barang']; ?>
-              </option>
+                <option value="<?= $item['id_barang']; ?>">
+                  <?= $item['nama_barang']; ?>
+                </option>
               <?php endforeach ?>
             </select>
           </div>

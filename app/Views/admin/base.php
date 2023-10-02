@@ -55,6 +55,9 @@
   <script src="<?= base_url(); ?>/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
   <script src="<?= base_url() ?>/node_modules/toastr/build/toastr.min.js"></script>
 
+  <script src="<?= base_url(''); ?>/jspdf/examples/libs/jspdf.umd.js"></script>
+  <script src="<?= base_url(''); ?>/jspdf/dist/jspdf.plugin.autotable.js"></script>
+
   <script>
   toastr.options = {
     "closeButton": true,
