@@ -20,53 +20,58 @@
       <tr>
         <th>ID BARANG</th>
         <th>NAMA BARANG</th>
+        <th>TANGGAL MASUK</th>
         <th>HARGA BARANG</th>
-        <th>KUANTITAS BARANG</th>
-        <th>SUBTOTAL</th>
+        <th>STOK BARANG MASUK</th>
+        <th>SUBTOTAL NILAI</th>
       </tr>
     </thead>
     <tbody>
       <?php if ($data == null): ?>
       <tr>
-        <td colspan="5">DATA KOSONG</td>
+        <td colspan="6">DATA KOSONG</td>
       </tr>
       <?php endif ?>
 
-      <?php foreach ($data as $k): ?>
+      <?php foreach ($data as $item): ?>
+      <?php
+        $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRowArray();
 
-      <?php $get = $db->table('transaksi_detail')->where('id_transaksi', $k['id_transaksi'])->get()->getResultArray(); ?>
-
-      <?php foreach ($get as $item): ?>
-      <?php $total[] = $item['harga'] * $item['kuantitas_barang']; ?>
+        $total[] = $get['harga'] * $item['stok'];
+        ?>
       <tr>
         <td>
           <?= $item['id_barang']; ?>
         </td>
         <td>
-          <?= $item['nama_barang']; ?>
-        </td>
-        <td>Rp.
-          <?= number_format($item['harga'], 0, ',', '.'); ?>
+          <?= $get['nama_barang']; ?>
         </td>
         <td>
-          <?= $item['kuantitas_barang']; ?>
+          <?= $item['tgl_masuk']; ?>
         </td>
         <td>Rp.
-          <?= number_format($item['harga'] * $item['kuantitas_barang'], 0, ',', '.'); ?>
+          <?= number_format($get['harga'], 0, ',', '.'); ?>
+        </td>
+        <td>
+          <?= $item['stok']; ?>
+        </td>
+        <td>Rp.
+          <?= number_format($get['harga'] * $item['stok'], 0, ',', '.'); ?>
         </td>
       </tr>
       <?php endforeach ?>
 
-      <?php endforeach ?>
     </tbody>
+
     <tfoot>
       <tr>
-        <th colspan="4">TOTAL PENDAPATAN</th>
+        <th colspan="5">TOTAL NILAI</th>
         <th>Rp.
           <?= number_format(array_sum($total), 0, ',', '.'); ?>
         </th>
       </tr>
     </tfoot>
+
   </table>
 
   <script>
@@ -84,7 +89,7 @@
 
 
     doc.setFontSize(17)
-    doc.text('LAPORAN KEUANGAN', 110, 10, 'center');
+    doc.text('ANALISA STOK', 110, 10, 'center');
     doc.text('TOKO BASSEANG ELEKTRONIK', 110, 15, 'center');
     doc.setFontSize(12)
     doc.text(`Berdasarkan ${typeDate} ${dateLaporan}`, 110, 21, 'center');

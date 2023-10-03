@@ -26,10 +26,6 @@ $routes->post('User/Daftar', 'CustLogin::signup');
 $routes->post('User/Login', 'CustLogin::auth');
 $routes->get('User/Logoff', 'CustLogin::logout');
 
-$routes->get('render', function () {
-  return view('admin/render_pdf');
-});
-
 $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($routes) {
 
   // Menu Panel
@@ -40,6 +36,7 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
   $routes->get('LapKeuangan', 'AdmController::laporan_keuangan');
   $routes->get('AnalisaStok', 'AdmController::analisa_stok');
 
+  $routes->post('AnalisaStok/render', 'AdmController::render_analisa_stok');
   $routes->post('LapKeuangan/render', 'AdmController::renderLapkeuangan');
 
   $routes->post('TambahStok', 'AdmController::add_stok');

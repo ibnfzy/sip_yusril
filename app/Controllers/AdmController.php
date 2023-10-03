@@ -90,6 +90,34 @@ class AdmController extends BaseController
         ]);
     }
 
+    public function render_analisa_stok()
+    {
+        $type = $this->request->getPost('views-control');
+
+        switch ($type) {
+            case 'bulan':
+                $where = date('Y-m', strtotime($this->request->getPost('bulan')));
+                $date = date('F Y', strtotime($this->request->getPost('bulan')));
+                break;
+
+            case 'tahun':
+                $where = $this->request->getPost('tahun');
+                $date = $this->request->getPost('tahun');
+                break;
+
+            default:
+                $date = $this->request->getPost('bulan');
+                $date = date('l Y', strtotime($this->request->getPost('bulan')));
+                break;
+        }
+
+        return view('admin/render_laporan_keuangan', [
+            'data' => $this->db->table('stok_barang')->like('tgl_input', $where, 'right')->get()->getResultArray(),
+            'type' => $type,
+            'date' => $date
+        ]);
+    }
+
     public function transaksi()
     {
         return view('admin/transaksi', [
