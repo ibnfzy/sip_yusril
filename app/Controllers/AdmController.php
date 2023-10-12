@@ -25,6 +25,54 @@ class AdmController extends BaseController
         ]);
     }
 
+    public function update_password()
+    {
+        $rules = [
+            'password_lama' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'matches[password]',
+        ];
+
+        $check = $this->db->table('admin')->where('id_admin', session()->get('id_admin'))->get()->getRowArray();
+
+        if (!password_verify($this->request->getPost('password_lama'), $check['password'])) {
+            return redirect()->to(base_url('OwnPanel'))->with('type-status', 'error')->with('message', 'Password Lama Tidak Benar');
+        }
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(base_url('OwnPanel'))->with('type-status', 'error')->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $data = [
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+        ];
+
+        $this->db->table('admin')->where('id_customer', session()->get('id_admin'))->update($data);
+
+        return redirect()->to(base_url('OwnPanel'))->with('type-status', 'success')->with('message', 'Password berhasil diperbarui');
+    }
+
+    public function update_informasi()
+    {
+        $rules = [
+            'tentang' => 'required',
+            'alamat' => 'required',
+            'kontak' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(previous_url())->with('type-status', 'error')->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $this->db->table('toko_informasi')->where('id_toko', 1)->update([
+            'tentang' => $this->request->getPost('tentang'),
+            'alamat' => $this->request->getPost('alamat'),
+            'kontak' => $this->request->getPost('kontak')
+        ]);
+
+        return redirect()->to(previous_url())->with('type-status', 'success')->with('message', 'Data berhasil diubah');
+    }
+
     public function add_stok()
     {
         $getLastStok = $this->db->table('barang')->where('id_barang', $this->request->getPost('id_barang'))->get()->getRowArray();

@@ -33,7 +33,6 @@ class Barang extends BaseController
             'id_kategori' => 'required',
             'nama_barang' => 'required|max_length[50]',
             'harga' => 'required',
-            'stok' => 'required',
             'gambar' => 'is_image[gambar]',
             'desc' => 'required'
         ];
@@ -56,7 +55,7 @@ class Barang extends BaseController
             'nama_barang' => $this->request->getPost('nama_barang'),
             'kategori' => $getKategori['nama_kategori'],
             'harga' => $this->request->getPost('harga'),
-            'stok' => $this->request->getPost('stok'),
+            'stok' => 1,
             'gambar' => $namafile,
             'desc' => $this->request->getPost('desc')
         ]);

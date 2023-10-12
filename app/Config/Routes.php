@@ -30,6 +30,8 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
 
   // Menu Panel
   $routes->get('/', 'AdmController::index');
+  $routes->post('UpdateInformasi', 'AdmController::update_informasi');
+  $routes->post('UpdatePassword', 'AdmController::update_password');
   $routes->get('Transaksi', 'AdmController::transaksi');
   $routes->get('Transaksi/(:num)/(:num)', 'AdmController::invoice/$1/$2');
   $routes->get('Pelanggan', 'AdmController::pelanggan');
