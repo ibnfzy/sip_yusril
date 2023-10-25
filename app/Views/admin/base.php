@@ -31,8 +31,7 @@
     </div>
     <!-- /. PAGE WRAPPER  -->
   </div>
-  <!-- /. WRAPPER  -->
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+
   <!-- JQUERY SCRIPTS -->
   <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js"></script>
   <!-- BOOTSTRAP SCRIPTS -->
@@ -47,9 +46,9 @@
   <script src="<?= base_url() ?>assets/js/dataTables/jquery.dataTables.js"></script>
   <script src="<?= base_url() ?>assets/js/dataTables/dataTables.bootstrap.js"></script>
   <script>
-    $(document).ready(function () {
-      $('#datatable').dataTable();
-    });
+  $(document).ready(function() {
+    $('#datatable').dataTable();
+  });
   </script>
 
   <script src="<?= base_url(); ?>/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
@@ -59,23 +58,23 @@
   <script src="<?= base_url(''); ?>/jspdf/dist/jspdf.plugin.autotable.js"></script>
 
   <script>
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": true,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
   </script>
 
   <?= $this->renderSection('script'); ?>

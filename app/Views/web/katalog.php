@@ -31,31 +31,28 @@
 
                   <?php foreach ($data as $item): ?>
 
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                      <div class="products-single fix">
-                        <div class="box-img-hover">
-                          <div class="type-lb">
-                            <!-- <p class="sale">Sale</p> -->
-                          </div>
-                          <img src="<?= base_url('uploads/' . $item['gambar']); ?>" class="img-fluid" alt="Image">
-                          <div class="mask-icon">
-                            <ul>
-                              <li><a href="<?= base_url('Detail/' . $item['id_barang']); ?>" data-toggle="tooltip"
-                                  data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                            </ul>
-                            <a class="cart" href="<?= base_url('add_barang/' . $item['id_barang']); ?>">Add to Cart</a>
-                          </div>
+                  <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                    <div class="products-single fix">
+                      <div class="box-img-hover">
+                        <div class="type-lb">
+                          <!-- <p class="sale">Sale</p> -->
                         </div>
-                        <div class="why-text">
+                        <a href="<?= base_url('Detail/' . $item['id_barang']); ?>">
+                          <img src="<?= base_url('uploads/' . $item['gambar']); ?>" class="img-fluid" alt="Image">
+                        </a>
+                      </div>
+                      <div class="why-text">
+                        <a href="<?= base_url('Detail/' . $item['id_barang']); ?>">
                           <h4>
                             <?= $item['nama_barang']; ?>
                           </h4>
-                          <h5> Rp.
-                            <?= number_format($item['harga'], 0, ',', '.'); ?>
-                          </h5>
-                        </div>
+                        </a>
+                        <h5> Rp.
+                          <?= number_format($item['harga'], 0, ',', '.'); ?>
+                        </h5>
                       </div>
                     </div>
+                  </div>
                   <?php endforeach ?>
 
                 </div>

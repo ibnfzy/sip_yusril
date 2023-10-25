@@ -40,6 +40,10 @@ $cart = \Config\Services::cart();
 
           <li class="nav-item"><a class="nav-link" href="<?= base_url('Panel'); ?>">Pelanggan Panel</a></li>
 
+          <?php if (session()->get('logged_in_cust') != true): ?>
+          <li class="nav-item"><a class="nav-link" href="<?= base_url('User/Daftar'); ?>">Daftar</a></li>
+          <?php endif ?>
+
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -49,7 +53,8 @@ $cart = \Config\Services::cart();
         <ul>
           <li class="side-menu"><a class="nav-link" href="<?= base_url('Cart'); ?>">
               <i class="fa fa-shopping-bag"></i>
-              Keranjang (<?= $cart->totalItems() ;?>)
+              Keranjang (
+              <?= $cart->totalItems(); ?> )
             </a></li>
         </ul>
       </div>

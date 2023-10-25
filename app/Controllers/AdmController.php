@@ -159,7 +159,7 @@ class AdmController extends BaseController
                 break;
         }
 
-        return view('admin/render_laporan_keuangan', [
+        return view('admin/render_analisa_stok', [
             'data' => $this->db->table('stok_barang')->like('tgl_input', $where, 'right')->get()->getResultArray(),
             'type' => $type,
             'date' => $date

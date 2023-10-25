@@ -108,6 +108,11 @@ class Home extends BaseController
     {
         $get = $this->db->table('barang')->where('id_barang', $id)->get()->getRowArray();
 
+        if ($get['stok'] < 1) {
+            return redirect()->to(previous_url())->with('type-status', 'error')
+                ->with('message', 'Stok Kosong');
+        }
+
         $this->cart->insert([
             'id' => $get['id_barang'],
             'qty' => 1,

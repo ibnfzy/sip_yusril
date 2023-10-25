@@ -705,9 +705,14 @@
 }
  .cover-slides .container{
      height: 100%;
-     position: relative;
-     z-index: 2;
+     position: fixed !important;
+     z-index: 1;
 }
+
+.cover-slides img {
+    align-items: center;
+}
+
  .cover-slides .container > .row {
      -webkit-box-align: center;
      -ms-flex-align: center;
@@ -730,6 +735,7 @@
      font-weight: 500;
      font-size: 64px;
      color: #fff;
+     z-index: 2;
 }
  .cover-slides p{
      font-size: 18px;
