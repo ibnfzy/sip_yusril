@@ -89,7 +89,7 @@ class CustLogin extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            return redirect()->to(base_url('User/Login/Registration'))->with('type-status', 'error')
+            return redirect()->to(base_url('User/Daftar'))->with('type-status', 'error')
                 ->with('dataMessage', $this->validator->getErrors());
         }
 
