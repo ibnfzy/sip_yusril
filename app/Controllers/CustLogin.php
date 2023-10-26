@@ -80,7 +80,7 @@ class CustLogin extends BaseController
     {
         $rules = [
             'fullname' => 'required|min_length[5]|max_length[30]',
-            'username' => 'required|min_length[5]|max_length[16]|is_unique[pembeli.username]',
+            'username' => 'required|min_length[5]|max_length[16]|is_unique[customer.username]',
             'password' => 'required|min_length[5]|max_length[16]',
             'confirmPassword' => 'required|matches[password]',
             'kota' => 'required',
