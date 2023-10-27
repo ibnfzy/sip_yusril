@@ -682,7 +682,8 @@
 }
 /*------------------------------------------------------------------ Slider -------------------------------------------------------------------*/
  .cover-slides{
-     height: 100vh;
+     height: 50vh;
+     text-align: center;
 }
  .slides-navigation a {
      background: #d33b33;
@@ -707,10 +708,13 @@
      height: 100%;
      position: fixed !important;
      z-index: 1;
+     text-align: center;
 }
 
-.cover-slides img {
-    align-items: center;
+.cover-slides ul li img {
+    height: calc(70vh - 100px);
+    width: 40%;
+    margin: 0 auto;
 }
 
  .cover-slides .container > .row {
@@ -756,6 +760,8 @@
      text-transform: uppercase;
      padding: 10px 20px;
 }
+
+
 /*------------------------------------------------------------------ Categories Shop -------------------------------------------------------------------*/
  .categories-shop{
      padding: 70px 0px;

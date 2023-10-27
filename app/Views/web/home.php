@@ -3,38 +3,13 @@
 <?= $this->section('content'); ?>
 
 <!-- Start Slider -->
-<div id="slides-shop" class="cover-slides" style="max-height: 500px;">
-  <ul class="slides-container" style="max-height: 500px;">
-    <div class="container-fluid">
-      <?php foreach ($corousel as $item): ?>
+<div id="slides-shop" class="cover-slides" style="">
+  <ul class="slides-container" style="">
+    <?php foreach ($corousel as $item): ?>
       <li class="">
-        <img style="max-height: 500px; max-width: 500px" src="<?= base_url('uploads/' . $item['gambar']); ?>" alt="">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <!-- <h1 class="m-b-20"><strong>Welcome To <br> Thewayshop</strong></h1>
-                  <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any
-                    changes in performance over time.</p>
-                  <p><a class="btn hvr-hover" href="#">Shop New</a></p> -->
-            </div>
-          </div>
-        </div>
+        <img style="" src="<?= base_url('uploads/' . $item['gambar']); ?>" alt="">
       </li>
-      <li class="">
-        <img style="max-height: 500px; max-width: 500px" src="<?= base_url('uploads/' . $item['gambar']); ?>" alt="">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <!-- <h1 class="m-b-20"><strong>Welcome To <br> Thewayshop</strong></h1>
-                  <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any
-                    changes in performance over time.</p>
-                  <p><a class="btn hvr-hover" href="#">Shop New</a></p> -->
-            </div>
-          </div>
-        </div>
-      </li>
-      <?php endforeach ?>
-    </div>
+    <?php endforeach ?>
   </ul>
   <div class="slides-navigation">
     <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -85,37 +60,23 @@
 
     <div class="row special-list">
       <?php foreach ($rekom as $r): ?>
-      <div class="col-lg-3 col-md-6 special-grid best-seller">
-        <div class="products-single fix">
-          <div class="box-img-hover">
-            <div class="type-lb">
-              <!-- <p class="sale">Sale</p> -->
-            </div>
-            <img src="<?= base_url('uploads/' . $r['gambar']); ?>" class="img-fluid" alt="Image">
-            <div class="mask-icon">
-              <ul>
-                <li><a href="<?= base_url('Detail/' . $r['id_barang']); ?>" data-toggle="tooltip" data-placement="right"
-                    title="View"><i class="fas fa-eye"></i></a>
-                </li>
-              </ul>
-              <a class="cart" href="<?= base_url('add_barang/' . $r['id_barang']); ?>">Add to Cart</a>
-            </div>
+        <div class="col-lg-3 col-md-6 special-grid best-seller">
+          <div class="products-single fix">
+            <a href="<?= base_url('Detail/' . $r['id_barang']); ?>">
+              <img src="<?= base_url('uploads/' . $r['gambar']); ?>" class="img-fluid" alt="Image">
+            </a>
           </div>
-          <a href="<?= base_url('Detail/' . $r['id_barang']); ?>">
-            <img src="<?= base_url('uploads/' . $r['gambar']); ?>" class="img-fluid" alt="Image">
-          </a>
+          <div class="why-text">
+            <a href="<?= base_url('Detail/' . $r['id_barang']); ?>">
+              <h4>
+                <?= $r['nama_barang']; ?>
+              </h4>
+            </a>
+            <h5> Rp.
+              <?= number_format($r['harga'], 0, ',', '.'); ?>
+            </h5>
+          </div>
         </div>
-        <div class="why-text">
-          <a href="<?= base_url('Detail/' . $r['id_barang']); ?>">
-            <h4>
-              <?= $r['nama_barang']; ?>
-            </h4>
-          </a>
-          <h5> Rp.
-            <?= number_format($r['harga'], 0, ',', '.'); ?>
-          </h5>
-        </div>
-      </div>
       <?php endforeach ?>
 
 

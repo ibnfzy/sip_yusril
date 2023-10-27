@@ -156,7 +156,6 @@
       color: white;
       font-weight: bolder;
       text-align: center;
-      padding-top: 2%;
     }
   </style>
 </head>
@@ -171,7 +170,7 @@
     <input type="text" placeholder="Kontak" name="nomor_hp" id="mask">
     <input type="password" placeholder="Password" name="password">
     <input type="password" placeholder="Konfirmasi Password" name="confirmPassword">
-    <button type="submit">Login</button>
+    <button type="submit">Daftar</button>
     <a href="<?= base_url('User/Login'); ?>">Sudah Punya akun? Login disini</a>
   </form>
 

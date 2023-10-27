@@ -52,7 +52,7 @@ class UserController extends BaseController
 
         $data = [
             'bukti_bayar' => $this->request->getFile('gambar')->getName(),
-            'status_bayar' => 'Menunggu Validasi Bukti Bayar',
+            'status_transaksi' => 'Menunggu Validasi Bukti Bayar',
         ];
 
         if (!$this->request->getFile('gambar')->hasMoved()) {
