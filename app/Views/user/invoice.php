@@ -250,12 +250,14 @@
     </table>
     <hr>
     <div class="d-flex justify-content-around">
+      <?php if ($dataTransaksi['bukti_bayar'] == null) : ?>
       <div>
         <button <?= ($dataTransaksi['status_transaksi'] == 'Gagal') ? 'disabled' : '' ?>
           <?= ($dataTransaksi['status_transaksi'] == 'Selesai') ? 'disabled' : '' ?> class="btn btn-primary"
           data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-upload"></i> Upload Bukti
           Bayar</button>
       </div>
+      <?php endif ?>
       <div><a type="button" target="_blank" href="https://wa.me/<?= str_replace('08', '628', $dataToko['kontak']); ?>"
           class="btn btn-success"><i class="fab fa-whatsapp"></i>
           Hubungi
@@ -267,6 +269,14 @@
       <div>
         <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review"><i
             class="fa fa-star"></i> Review Barang</a>
+      </div>
+      <?php endif ?>
+      <?php if ($dataTransaksi['status_transaksi'] == 'Barang sedang dikirim'): ?>
+      <div>
+        <a href="<?= base_url('Panel/Selesai/' . $dataTransaksi['id_transaksi']); ?>" class="btn btn-success">
+          Konfirmasi
+          Barang
+          Diterima</a>
       </div>
       <?php endif ?>
     </div>

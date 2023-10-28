@@ -37,6 +37,8 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
   $routes->get('Pelanggan', 'AdmController::pelanggan');
   $routes->get('LapKeuangan', 'AdmController::laporan_keuangan');
   $routes->get('AnalisaStok', 'AdmController::analisa_stok');
+  $routes->get('Validasi/(:num)', 'AdmController::validasi/$1');
+  $routes->get('KirimBarang/(:num)', 'AdmController::kirim/$1');
 
   $routes->post('AnalisaStok/render', 'AdmController::render_analisa_stok');
   $routes->post('LapKeuangan/render', 'AdmController::renderLapkeuangan');
@@ -72,6 +74,7 @@ $routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) 
   $routes->get('Transaksi/(:num)', 'UserController::invoice/$1');
   $routes->post('Transaksi/(:num)', 'UserController::upload/$1');
   $routes->get('Transaksi', 'UserController::transaksi');
+  $routes->get('Selesai/(:num)', 'UserController::selesai/$1');
 
   $routes->get('Review', 'UserController::review');
   $routes->post('Review/(:num)', 'UserController::review_add/$1');

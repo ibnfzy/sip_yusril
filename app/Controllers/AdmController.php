@@ -189,7 +189,7 @@ class AdmController extends BaseController
             'status_transaksi' => 'Diproses'
         ]);
 
-        return redirect()->to(base_url('OwnPanel/Transaksi/' . $id))->with('type-status', 'success')
+        return redirect()->to(previous_url())->with('type-status', 'success')
             ->with('message', 'Data berhasil divalidasi');
     }
 
@@ -199,7 +199,7 @@ class AdmController extends BaseController
             'status_transaksi' => 'Barang sedang dikirim'
         ]);
 
-        return redirect()->to(base_url('OwnPanel/Transaksi/' . $id))->with('type-status', 'success')
+        return redirect()->to(previous_url())->with('type-status', 'success')
             ->with('message', 'Status Transaksi berhasil diubah');
     }
 }
