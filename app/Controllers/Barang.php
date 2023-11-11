@@ -64,7 +64,7 @@ class Barang extends BaseController
 
         $this->db->table('stok_barang')->insert([
             'id_barang' => $getLastID['id_barang'],
-            'stok' => $this->request->getPost('stok')
+            'stok' => 1
         ]);
 
         return redirect()->to(base_url('OwnPanel/Barang'))->with('type-status', 'success')->with('message', 'Data berhasil ditambahkan');
@@ -128,6 +128,7 @@ class Barang extends BaseController
     public function delete($id)
     {
         $this->db->table('barang')->where('id_barang', $id)->delete();
+        $this->db->table('stok_barang')->where('id_barang', $id)->delete();
 
         return redirect()->to(base_url('OwnPanel/Barang'))->with('type-status', 'success')->with('message', 'Data berhasil dihapus');
     }

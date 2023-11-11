@@ -21,6 +21,7 @@
               <thead>
                 <tr>
                   <th>~</th>
+                  <th>Kode Barang</th>
                   <th>Nama Barang</th>
                   <th>Harga</th>
                   <th>Stok</th>

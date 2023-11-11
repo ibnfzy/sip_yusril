@@ -135,7 +135,7 @@
   <div class="invoice-box">
     <table>
       <tr class="top">
-        <td colspan="3">
+        <td colspan="5">
           <table>
             <tr>
               <td class="title">
@@ -145,12 +145,14 @@
                   Kembali</button>
               </td>
 
-              <td>
-                Invoice ID #:
+              <td></td>
+
+              <td colspan="5">
+                No Faktur #:
                 <?= $dataTransaksi['id_transaksi']; ?><br />
-                Created:
+                Tanggal Checkout:
                 <?= $dataTransaksi['tgl_checkout']; ?><br />
-                Batas Pembayaran:
+                Tanggal Jatuh Tempo:
                 <?= ($dataTransaksi['batas_pembayaran'] != null) ? $dataTransaksi['batas_pembayaran'] : 'Sudah Mengupload Bukti Bayar' ?>
               </td>
             </tr>
@@ -183,8 +185,9 @@
 
       <tr class="heading">
         <td>#</td>
-        <td>ID Barang</td>
+        <td>Kode Barang</td>
         <td>Nama Barang</td>
+        <td>Harga Satuan Barang</td>
         <td>Kuantitas</td>
         <td>Total Harga</td>
       </tr>
@@ -203,10 +206,13 @@
         <td>
           <?= $item['nama_barang']; ?>
         </td>
+        <td>Rp
+          <?= number_format($item['harga_barang'] / $item['kuantitas_barang'], 0, ',', '.'); ?>
+        </td>
         <td>
           <?= $item['kuantitas_barang']; ?>
         </td>
-        <td>Rp.
+        <td>Rp
           <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
         </td>
       </tr>
@@ -250,7 +256,7 @@
     </table>
     <hr>
     <div class="d-flex justify-content-around">
-      <?php if ($dataTransaksi['bukti_bayar'] == null) : ?>
+      <?php if ($dataTransaksi['bukti_bayar'] == null): ?>
       <div>
         <button <?= ($dataTransaksi['status_transaksi'] == 'Gagal') ? 'disabled' : '' ?>
           <?= ($dataTransaksi['status_transaksi'] == 'Selesai') ? 'disabled' : '' ?> class="btn btn-primary"

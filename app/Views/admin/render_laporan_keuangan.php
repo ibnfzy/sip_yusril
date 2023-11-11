@@ -20,6 +20,7 @@
       <tr>
         <th>ID BARANG</th>
         <th>NAMA BARANG</th>
+        <th>TANGGAL TRANSAKSI</th>
         <th>HARGA BARANG</th>
         <th>KUANTITAS BARANG</th>
         <th>SUBTOTAL</th>
@@ -44,6 +45,9 @@
             </td>
             <td>
               <?= $item['nama_barang']; ?>
+            </td>
+            <td>
+              <?= $k['tgl_checkout']; ?>
             </td>
             <td>Rp.
               <?= number_format($item['harga_barang'], 0, ',', '.'); ?>
