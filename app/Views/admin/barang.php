@@ -36,6 +36,10 @@
                     <td>
                       <?= $x++; ?>
                     </td>
+
+                    <td>
+                      <?= $item['id_barang']; ?>
+                    </td>
                     <td>
                       <?= $item['nama_barang']; ?>
                     </td>

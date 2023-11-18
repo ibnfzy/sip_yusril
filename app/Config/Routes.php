@@ -64,6 +64,11 @@ $routes->group('OwnPanel', ['namespaces' => 'App\Controllers'], function ($route
   $routes->post('Corousel', 'Corousel::create');
   $routes->get('Corousel/add', 'Corousel::new');
   $routes->get('Corousel/(:num)', 'Corousel::delete/$1');
+
+  $routes->get('Supplier', 'Supplier::index');
+  $routes->post('Supplier', 'Supplier::create');
+  $routes->post('Supplier/Edit', 'Supplier::edit');
+  $routes->get('Supplier/(:num)', 'Supplier::delete/$1');
 });
 
 $routes->group('Panel', ['namespaces' => 'App\Controllers'], function ($routes) {

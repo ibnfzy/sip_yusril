@@ -25,6 +25,10 @@ $getInformasi = $db->table('toko_informasi')->where('id_toko', 1)->get()->getRow
       </li>
 
       <li>
+        <a href="<?= base_url('OwnPanel/Supplier') ?>"><i class="fa fa-picture-o fa-2x"></i>Supplier</a>
+      </li>
+
+      <li>
         <a href="<?= base_url('OwnPanel/Corousel') ?>"><i class="fa fa-picture-o fa-2x"></i>Corousel</a>
       </li>
 

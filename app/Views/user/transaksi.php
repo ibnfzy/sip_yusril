@@ -22,7 +22,7 @@
                   <th>~</th>
                   <th>Total Barang</th>
                   <th>Total Bayar</th>
-                  <th>Tanggal Checkout</th>
+                  <th>Tanggal Pembelian</th>
                   <th>Tanggal Batas Bayar</th>
                   <th>Status Transaksi</th>
                   <th>Invoice</th>
@@ -31,28 +31,28 @@
               <tbody>
                 <?php $x = 1; ?>
                 <?php foreach ($data as $item): ?>
-                <tr>
-                  <td>
-                    <?= $x++; ?>
-                  </td>
-                  <td>
-                    <?= $item['total_items']; ?>
-                  </td>
-                  <td>Rp.
-                    <?= number_format($item['total_bayar'], 0, ',', '.'); ?>
-                  </td>
-                  <td>
-                    <?= date('d M Y', strtotime($item['tgl_checkout'])); ?>
-                  </td>
-                  <td>
-                    <?= date('d M Y', strtotime($item['batas_pembayaran'])); ?>
-                  </td>
-                  <td>
-                    <?= $item['status_transaksi']; ?>
-                  </td>
-                  <td><a href="<?= base_url('Panel/Transaksi/' . $item['id_transaksi']); ?>"
-                      class="btn btn-danger">Invoice</a></td>
-                </tr>
+                  <tr>
+                    <td>
+                      <?= $x++; ?>
+                    </td>
+                    <td>
+                      <?= $item['total_items']; ?>
+                    </td>
+                    <td>Rp.
+                      <?= number_format($item['total_bayar'], 0, ',', '.'); ?>
+                    </td>
+                    <td>
+                      <?= date('d M Y', strtotime($item['tgl_checkout'])); ?>
+                    </td>
+                    <td>
+                      <?= date('d M Y', strtotime($item['batas_pembayaran'])); ?>
+                    </td>
+                    <td>
+                      <?= $item['status_transaksi']; ?>
+                    </td>
+                    <td><a href="<?= base_url('Panel/Transaksi/' . $item['id_transaksi']); ?>"
+                        class="btn btn-danger">Invoice</a></td>
+                  </tr>
                 <?php endforeach ?>
               </tbody>
             </table>

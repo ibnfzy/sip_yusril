@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Customer Login</title>
+  <link rel="stylesheet" href="<?= base_url() ?>/node_modules/toastr/build/toastr.min.css">
   <style>
   body {
     background-color: #f45b69;
@@ -172,6 +173,43 @@
 
   <!-- <a href="https://codepen.io/davinci/" target="_blank">check my other pens</a> -->
 
+
+  <script src="<?= base_url() ?>assets/js/jquery-1.10.2.js"></script>
+
+  <script src="<?= base_url() ?>/node_modules/toastr/build/toastr.min.js"></script>
+
+  <script>
+  toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+  </script>
+
+  <?php
+  if (session()->getFlashdata('dataMessage')) {
+    foreach (session()->getFlashdata('dataMessage') as $item) {
+      echo '<script>toastr["' .
+        session()->getFlashdata('type-status') . '"]("' . $item . '")</script>';
+    }
+  }
+  if (session()->getFlashdata('message')) {
+    echo '<script>toastr["' .
+      session()->getFlashdata('type-status') . '"]("' . session()->getFlashdata('message') . '")</script>';
+  }
+  ?>
 </body>
 
 </html>

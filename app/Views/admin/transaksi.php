@@ -24,7 +24,7 @@
                   <th>Nama Customer</th>
                   <th>Total Barang</th>
                   <th>Total Bayar</th>
-                  <th>Tanggal Checkout</th>
+                  <th>Tanggal Pembelian</th>
                   <th>Tanggal Batas Bayar</th>
                   <th>Status Transaksi</th>
                   <th>Invoice</th>
