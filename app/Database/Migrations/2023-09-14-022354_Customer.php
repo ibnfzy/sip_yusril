@@ -30,6 +30,12 @@ class Customer extends Migration
             'alamat' => [
                 'type' => 'TEXT'
             ],
+            'kecamatan' => [
+                'type' => 'TEXT'
+            ],
+            'kelurahan' => [
+                'type' => 'TEXT'
+            ],
             'nomor_hp' => [
                 'type' => 'VARCHAR',
                 'constraint' => 13

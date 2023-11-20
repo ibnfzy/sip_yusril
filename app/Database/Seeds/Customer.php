@@ -13,8 +13,10 @@ class Customer extends Seeder
             'fullname' => 'Admin',
             'password' => password_hash('admin', PASSWORD_DEFAULT),
             'kota' => 'Makassar',
+            'kelurahan' => 'Makassar',
+            'kecamatan' => 'Makassar',
             'alamat' => 'Jl. Toddopuli Raya No. 12',
-            'nomor_hp' => '08123321123'
+            'nomor_hp' => '628123321123'
         ]);
     }
 }

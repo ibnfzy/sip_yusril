@@ -84,6 +84,8 @@ class CustLogin extends BaseController
             'password' => 'required|min_length[5]|max_length[16]',
             'confirmPassword' => 'required|matches[password]',
             'kota' => 'required',
+            'kelurahan' => 'required',
+            'kecamatan' => 'required',
             'alamat' => 'required',
             'nomor_hp' => 'required|min_length[10]|max_length[13]',
         ];
@@ -98,8 +100,10 @@ class CustLogin extends BaseController
             'fullname' => $this->request->getPost('fullname'),
             'password' => password_hash($this->request->getPost('password') ?? '', PASSWORD_DEFAULT),
             'kota' => $this->request->getPost('kota'),
+            'kelurahan' => $this->request->getPost('kelurahan'),
+            'kecamatan' => $this->request->getPost('kecamatan'),
             'alamat' => $this->request->getPost('alamat'),
-            'nomor_hp' => $this->request->getPost('nomor_hp')
+            'nomor_hp' => str_replace('+', '', $this->request->getPost('nomor_hp'))
         ];
 
         $this->db->table('customer')->insert($data);
