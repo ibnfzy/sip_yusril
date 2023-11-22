@@ -150,9 +150,9 @@
               <td colspan="5">
                 No Faktur #:
                 <?= $dataTransaksi['id_transaksi']; ?><br />
-                Tanggal Checkout:
+                Tanggal Beli:
                 <?= $dataTransaksi['tgl_checkout']; ?><br />
-                Tanggal Jatuh Tempo:
+                Tanggal Batas Pembayaran:
                 <?= ($dataTransaksi['batas_pembayaran'] != null) ? $dataTransaksi['batas_pembayaran'] : 'Sudah Mengupload Bukti Bayar' ?>
               </td>
             </tr>
@@ -228,11 +228,11 @@
       </tr>
 
       <tr class="total">
-        <td colspan="3">Biaya Ongkir: Rp. 10.000
+        <td colspan="3">Biaya Ongkir: Rp. 20.000
 
         </td>
         <td colspan="3">Total Bayar: Rp.
-          <?= $total_bayar = number_format((array_sum($total) + 10000), 0, ',', '.'); ?>
+          <?= $total_bayar = number_format((array_sum($total) + 20000), 0, ',', '.'); ?>
         </td>
       </tr>
 

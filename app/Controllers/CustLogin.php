@@ -87,7 +87,7 @@ class CustLogin extends BaseController
             'kelurahan' => 'required',
             'kecamatan' => 'required',
             'alamat' => 'required',
-            'nomor_hp' => 'required|min_length[10]|max_length[13]',
+            'nomor_hp' => 'required|min_length[10]|max_length[14]',
         ];
 
         if (!$this->validate($rules)) {
