@@ -21,6 +21,20 @@ class Home extends BaseController
         ]);
     }
 
+    public function cari()
+    {
+        $data = $this->db->table('barang')->like('nama_barang', $this->request->getPost('nama_barang'))->get()->getResultArray();
+
+        if ($data == null) {
+            return redirect()->to(previous_url())->with('type-status', 'error')
+                ->with('message', 'Data Tidak Ditemukan');
+        }
+
+        return view('web/katalog', [
+            'data' => $data
+        ]);
+    }
+
     public function katalog()
     {
         return view('web/katalog', [

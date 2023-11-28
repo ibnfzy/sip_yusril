@@ -49,13 +49,14 @@ $cart = \Config\Services::cart();
       <!-- /.navbar-collapse -->
 
       <!-- Start Atribute Navigation -->
-      <div>
-        <ul>
+      <div class="attr-nav">
+        <ul style="display: flex; align-items: center;">
           <li class="side-menu"><a class="nav-link" href="<?= base_url('Cart'); ?>">
-              <i class="fa fa-shopping-bag"></i>
-              Keranjang (
+              <i class="fa fa-shopping-bag"></i> (
               <?= $cart->totalItems(); ?> )
             </a></li>
+          <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+
         </ul>
       </div>
       <!-- End Atribute Navigation -->
@@ -65,3 +66,14 @@ $cart = \Config\Services::cart();
   </nav>
   <!-- End Navigation -->
 </header>
+
+<div class="top-search">
+  <div class="container">
+    <form action="<?= base_url('CariKatalog') ;?>" method="post">
+      <div class="input-group">
+        <input type="text" name="nama_barang" class="form-control" placeholder="Cari berdasarkan Nama Barang">
+        <button type="submit" class="input-group-addon close-search"><i class="fa fa-search"></i></button>
+      </div>
+    </form>
+  </div>
+</div>

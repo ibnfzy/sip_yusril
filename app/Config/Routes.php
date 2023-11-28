@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 $routes->get('Katalog', 'Home::katalog');
 $routes->get('Katalog/(:num)', 'Home::katalog_kategori/$1');
 $routes->get('Detail/(:num)', 'Home::detail/$1');
+$routes->post('CariKatalog', 'Home::cari');
 
 $routes->get('Cart', 'Home::cart');
 $routes->get('add_barang/(:num)', 'Home::add_barang/$1');

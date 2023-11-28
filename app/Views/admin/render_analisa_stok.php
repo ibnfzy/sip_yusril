@@ -104,7 +104,7 @@
     var finalY = doc.lastAutoTable.finalY
 
     doc.setFontSize(12)
-    doc.text('Makassar, ' + fulldate, 140, finalY + 20)
+    doc.text('Polewali Mandar, ' + fulldate, 140, finalY + 20)
     doc.text('Sumarni', 140, finalY + 35)
 
     var string = doc.output('datauristring', 'laporan.pdf');

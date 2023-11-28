@@ -62,8 +62,8 @@
   <script src="<?= base_url() ?>js/bootstrap.min.js"></script>
   <!-- ALL PLUGINS -->
   <script src="<?= base_url() ?>js/jquery.superslides.min.js"></script>
-  <script src="<?= base_url() ?>js/inewsticker.js"></script>
   <script src="<?= base_url() ?>js/bootsnav.js"></script>
+  <script src="<?= base_url() ?>js/inewsticker.js"></script>
   <script src="<?= base_url() ?>js/images-loded.min.js"></script>
   <script src="<?= base_url() ?>js/isotope.min.js"></script>
   <script src="<?= base_url() ?>js/owl.carousel.min.js"></script>
